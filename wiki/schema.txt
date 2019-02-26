@@ -1,0 +1,104 @@
+| youtube                                    |           |                                |
+|--------------------------------------------|-----------|--------------------------------|
+|                                            |           |                                |
+| users                                      |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| name                                       | string    | not null                       |
+| email                                      | string    | not null, indexed, unique      |
+| password                                   | string    | not null                       |
+| session_token                              | string    | not null, indexed, unique      |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| index on email, unique: true               |           |                                |
+| index on session_token, unique: true       |           |                                |
+|                                            |           |                                |
+| videos                                     |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| video                                      | string    | not null                       |
+| title                                      | string    | not null                       |
+| description                                | text      | not null                       |
+| author_id                                  | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| author_id references users                 |           |                                |
+| index on author_id                         |           |                                |
+|                                            |           |                                |
+| likes                                      |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| user_id                                    | integer   | not null, indexed, foreign key |
+| video_id                                   | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| user_id references users                   |           |                                |
+| video_id references videos                 |           |                                |
+| index on [video_id, user_id], unique: true |           |                                |
+| index on user_id, unique: true             |           |                                |
+|                                            |           |                                |
+| dislikes                                   |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| user_id                                    | integer   | not null, indexed, foreign key |
+| video_id                                   | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| user_id references users                   |           |                                |
+| video_id references videos                 |           |                                |
+| index on [video_id, user_id], unique: true |           |                                |
+| index on user_id, unique: true             |           |                                |
+|                                            |           |                                |
+| comments                                   |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| body                                       | string    | not null                       |
+| user_id                                    | integer   | not null, indexed, foreign key |
+| video_id                                   | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| user_id references users                   |           |                                |
+| video_id references videos                 |           |                                |
+| index on [video_id, user_id], unique: true |           |                                |
+| index on user_id, unique: true             |           |                                |
+|                                            |           |                                |
+| plays                                      |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| user_id                                    | integer   | not null, foreign key          |
+| video_id                                   | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| user_id references users                   |           |                                |
+| video_id references videos                 |           |                                |
+| index on user_id, unique: true             |           |                                |
+|                                            |           |                                |
+| upvotes                                    |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| user_id                                    | integer   | not null, foreign key          |
+| comment_id                                 | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| user_id references users                   |           |                                |
+| video_id references videos                 |           |                                |
+| index on comment_id, unique: true          |           |                                |
+|                                            |           |                                |
+| downvotes                                  |           |                                |
+| column name                                | data type | details                        |
+| id                                         | integer   | not null, primary key          |
+| user_id                                    | integer   | not null, foreign key          |
+| comment_id                                 | integer   | not null, indexed, foreign key |
+| created_at                                 | datetime  | not null                       |
+| updated_at                                 | datetime  | not null                       |
+|                                            |           |                                |
+| user_id references users                   |           |                                |
+| video_id references videos                 |           |                                |
+| index on comment_id, unique: true          |           |                                |
