@@ -11,7 +11,22 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
-  }
+  },
+  "description": "NewTube is a YouTube clone. This is a 10 day full stack project through App Academy.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "webpack --watch --mode=development"
+  },
+  "keywords": [],
+  "author": "Mike Madsen",
+  "license": "ISC"
 }
