@@ -57,6 +57,14 @@ html, body {
   padding: 10px;
 }
 
+// .signin-form:invalid {
+//   border: 2px solid #d93025;
+// }
+
+.signin-error {
+  color: #d93025;
+}
+
 // .signin-input-container {
 //   display: flex;
 //   flex-direction: column;
@@ -109,6 +117,10 @@ html, body {
   border: 2px solid #1a73e8;
 }
 
+// .signin-input:invalid {
+//   border: 2px solid #d93025;
+// }
+
 .signin-float > label:focus {
   transform: translate(0, 20px) scale(1);
 }
@@ -129,4 +141,10 @@ html, body {
 .signin-btn:hover {
   background: #4285f4;
   cursor: pointer;
+}
+
+.signin-demo {
+  display: flex;
+  justify-content: space-around;
+  // flex-direction: flex-end;
 }

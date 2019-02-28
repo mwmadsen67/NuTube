@@ -25,19 +25,27 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    document.getElementsByClassName("header")[0].style.visibility= "visible";
+    // document.getElementsByClassName("header")[0].style.visibility= "visible";
   }
 
   renderErrors() {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="signin-error" key={`error-${i}`}>
             {error}
           </li>
         ))}
       </ul>
     );
+  }
+
+  demoLogin(){
+    return () => this.setState({
+      username: "demo",
+      email: "demo@nutube.com",
+      password: "demologin"
+    });
   }
 
   render() {
@@ -51,8 +59,8 @@ class SessionForm extends React.Component {
       <br/>
     );
 
-    document.getElementsByClassName("header")[0] ? (
-      document.getElementsByClassName("header")[0].style.visibility= "hidden") : ( null );
+    // document.getElementsByClassName("header")[0] ? (
+    //   document.getElementsByClassName("header")[0].style.visibility= "hidden") : ( null );
     return(
       <div className="signin-page">
         <div className="signin-form-container">
@@ -82,6 +90,10 @@ class SessionForm extends React.Component {
               <div className="signin-bottom-container">
                 {this.props.navLink}
                 <input className="signin-btn" type="submit" value="Next" />
+              </div>
+              <br/>
+              <div className="signin-demo">
+                <input className="signin-btn" type="submit" value="Demo login" onClick={this.demoLogin()} />
               </div>
             </div>
           </form>
