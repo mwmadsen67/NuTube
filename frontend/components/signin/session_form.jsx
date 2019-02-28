@@ -89,12 +89,12 @@ class SessionForm extends React.Component {
               </div>
               <div className="signin-bottom-container">
                 {this.props.navLink}
+                <div className="signin-demo">
+                  <input className="signin-btn" type="submit" value="Demo" onClick={this.demoLogin()} />
+                </div>
                 <input className="signin-btn" type="submit" value="Next" />
               </div>
               <br/>
-              <div className="signin-demo">
-                <input className="signin-btn" type="submit" value="Demo login" onClick={this.demoLogin()} />
-              </div>
             </div>
           </form>
         </div>

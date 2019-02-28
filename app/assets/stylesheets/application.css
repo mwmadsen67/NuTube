@@ -86,14 +86,18 @@ body main {
 
 .greeting-user-btn {
   display: inline;
+  position: relative;
   background: blueviolet;
   color: white;
   font-size: 18px;
   text-align: center;
   /* padding updown leftright */
-  padding: 6px 9px;
+  /* padding: 6px 10px; */
   border: 0px solid;
   border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  /* padding-top: 100%; */
   outline: none;
   cursor: pointer;
 }

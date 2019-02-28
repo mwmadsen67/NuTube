@@ -8,3 +8,4 @@
 
 
 demo = User.create({username: "sergeybrin", email: "sergeybrin@nutube.com", password: "demologin"})
+mike = User.create({username: "mike", email: "mike@nutube.com", password: "123456"})
