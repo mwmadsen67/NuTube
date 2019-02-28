@@ -2,6 +2,14 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.signin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .signin-form-container {
   display: flex;
   justify-content: center;
@@ -9,9 +17,19 @@ html, body {
   padding: 10px;
 }
 
+.main-logo {
+  display: flex;
+  width: 100px;
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 20pt;
+  font-family: 'Oswald', sans-serif;
+}
+
 .signin-form > h2 {
   font-size: 18pt;
-  // font-family: 'Open Sans', sans-serif;
 }
 
 .signin-form > h3 {
@@ -80,6 +98,7 @@ html, body {
   width: 330px;
   margin: 5px;
   text-indent: 10px;
+  box-sizing: border-box;
 }
 
 .signin-input:focus {

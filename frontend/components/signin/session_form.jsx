@@ -1,4 +1,6 @@
 import React from 'react';
+// import logo from './nutube_logo2.png';
+
 
 class SessionForm extends React.Component {
 
@@ -48,36 +50,42 @@ class SessionForm extends React.Component {
     ) : (
       <br/>
     );
+
     document.getElementsByClassName("header")[0] ? (
       document.getElementsByClassName("header")[0].style.visibility= "hidden") : ( null );
     return(
-      <div className="signin-form-container">
-        <form onSubmit={this.handleSubmit} className="signin-form">
-          {/* make NewTube image */}
-          <h3>NewTube</h3>
-          <br/>
-          <h2>{this.props.formType}</h2>
-          <br/>
-          <h3>to continue to NewTube</h3>
-          {this.renderErrors()}
-          <div className="signin-input-container">
-            {usernameInput}
-            <div className="signin-float-label">
-              <label>
-                <input className="signin-input" type="text" placeholder="Email" value={this.state.email} autofocus="autofocus" onChange={this.update('email')} />
-              </label>
+      <div className="signin-page">
+        <div className="signin-form-container">
+          <form onSubmit={this.handleSubmit} className="signin-form">
+            <div className="main-logo">
+              <img id='logo' src={window.images.logo} width="40" height="28"/>
+              &nbsp;
+              <h1 className="logo-text">NewTube</h1>
             </div>
-            <div className="signin-float-label">
-              <label>
-                <input className="signin-input" type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
-              </label>
+            <br/>
+            <h2>{this.props.formType}</h2>
+            <br/>
+            <h3>to continue to NewTube</h3>
+            {this.renderErrors()}
+            <div className="signin-input-container">
+              {usernameInput}
+              <div className="signin-float-label">
+                <label>
+                  <input className="signin-input" type="text" placeholder="Email" value={this.state.email} autoFocus onChange={this.update('email')} />
+                </label>
+              </div>
+              <div className="signin-float-label">
+                <label>
+                  <input className="signin-input" type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
+                </label>
+              </div>
+              <div className="signin-bottom-container">
+                {this.props.navLink}
+                <input className="signin-btn" type="submit" value="Next" />
+              </div>
             </div>
-            <div className="signin-bottom-container">
-              {this.props.navLink}
-              <input className="signin-btn" type="submit" value="Next" />
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
