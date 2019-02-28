@@ -39,10 +39,10 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const usernameInput = (this.props.formType === 'sign up') ? (
-      <div className="float-label">
+    const usernameInput = (this.props.formType === 'Sign up') ? (
+      <div className="signin-float-label">
         <label>
-          <input type="text" placeholder="Username" value={this.state.username} onChange={this.update('username')} />
+          <input className="signin-input" type="text" placeholder="Username" value={this.state.username} onChange={this.update('username')} />
         </label>
       </div>
     ) : (
@@ -59,28 +59,22 @@ class SessionForm extends React.Component {
           <h2>{this.props.formType}</h2>
           <br/>
           <h3>to continue to NewTube</h3>
-          <br/>
           {this.renderErrors()}
           <div className="signin-input-container">
-            <br/>
             {usernameInput}
-            <br/>
             <div className="signin-float-label">
               <label>
-                <input className="signin-input" type="text" placeholder="Email" value={this.state.email} onChange={this.update('email')} />
+                <input className="signin-input" type="text" placeholder="Email" value={this.state.email} autofocus="autofocus" onChange={this.update('email')} />
               </label>
             </div>
-            <br/>
             <div className="signin-float-label">
               <label>
                 <input className="signin-input" type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
               </label>
             </div>
-            <br/>
             <div className="signin-bottom-container">
               {this.props.navLink}
-              {/* <a href="/signup">Create account</a> */}
-              <input type="submit" value="Next" />
+              <input className="signin-btn" type="submit" value="Next" />
             </div>
           </div>
         </form>

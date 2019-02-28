@@ -1,3 +1,7 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .signin-form-container {
   display: flex;
   justify-content: center;
@@ -7,12 +11,12 @@
 
 .signin-form > h2 {
   font-size: 18pt;
-  font-family: 'Google Sans', arial, sans-serif;
+  // font-family: 'Open Sans', sans-serif;
 }
 
 .signin-form > h3 {
   font-size: 12pt;
-  font-family: 'Google Sans', arial, sans-serif;
+  // font-family: 'Open Sans', sans-serif;
 }
 
 .header {
@@ -24,8 +28,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 500px;
-  width: 450px;
+  height: 470px;
+  width: 420px;
   border: 1px solid #dadce0;
   border-radius: 8px;
   padding: 10px;
@@ -43,7 +47,7 @@
 .signin-float-label {
   display: flex;
   // position: relative;
-  width: 400px;
+  width: 360px;
   padding: 10px;
   margin: 5px;
 }
@@ -56,15 +60,16 @@
 
 .signin-bottom-container {
   display: flex;
-  width: 400px;
-  justify-content: space-around;
+  width: 360px;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
 }
 
 .signin-bottom-container > a{
   color: #1a73e8;
   text-decoration: none;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .signin-input {
@@ -72,8 +77,9 @@
   border: 1px solid #dadce0;
   border-radius: 5px;
   height: 50px;
-  width: 360px;
+  width: 330px;
   margin: 5px;
+  text-indent: 10px;
 }
 
 .signin-input:focus {
@@ -82,4 +88,22 @@
 
 .signin-float > label:focus {
   transform: translate(0, 20px) scale(1);
+}
+
+.signin-btn {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background: #1a73e8;
+  padding: 5px;
+  border-radius: 4px;
+  height: 38px;
+  width: 90px;
+  font-size: 11pt;
+  border: 0px solid;
+}
+
+.signin-btn:hover {
+  background: #4285f4;
+  cursor: pointer;
 }
