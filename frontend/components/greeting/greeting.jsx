@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Greeting = ({ currentUser, signout }) => {
   const signInLink = () => (
     <div className="signin">
-      {/* <a className="signin-link" href="/signin">SIGN IN</a> */}
       <Link to="/signin">SIGN IN</Link>
     </div>
   );
