@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Greeting = ({ currentUser, signout }) => {
   const signInLink = () => (
-    <div className="signin">
+    <div className="greeting-signin">
       <Link to="/signin">SIGN IN</Link>
     </div>
   );
   const userGreeting = () => (
-    <div className="user">
-      <button className="user-btn" onClick={signout}>
+    <div className="greeting-user">
+      <button className="greeting-user-btn" onClick={signout}>
         {currentUser.username[0].toUpperCase()}
       </button>
     </div>

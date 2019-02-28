@@ -1,5 +1,5 @@
 {
-  "name": "newtube",
+  "name": "nutube",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -19,7 +19,7 @@
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   },
-  "description": "NewTube is a YouTube clone. This is a 10 day full stack project through App Academy.",
+  "description": "NuTube is a YouTube clone. This is a 10 day full stack project through App Academy.",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {

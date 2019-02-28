@@ -1,6 +1,6 @@
 # MVP List
 
-NewTube, a YouTube clone, is a video sharing application that allows users to upload videos, that other viewers can watch, like, dislike, and comment on.
+NuTube, a YouTube clone, is a video sharing application that allows users to upload videos, that other viewers can watch, like, dislike, and comment on.
 
 ### 1. Hosting on Heroku (02/27/2019)
 

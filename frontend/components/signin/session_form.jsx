@@ -60,12 +60,12 @@ class SessionForm extends React.Component {
             <div className="main-logo">
               <img id='logo' src={window.images.logo} width="40" height="28"/>
               &nbsp;
-              <h1 className="logo-text">NewTube</h1>
+              <h1 className="logo-text">NuTube</h1>
             </div>
             <br/>
             <h2>{this.props.formType}</h2>
             <br/>
-            <h3>to continue to NewTube</h3>
+            <h3>to continue to NuTube</h3>
             {this.renderErrors()}
             <div className="signin-input-container">
               {usernameInput}

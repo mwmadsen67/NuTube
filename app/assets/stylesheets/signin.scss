@@ -1,13 +1,17 @@
 html, body {
   font-family: 'Roboto', sans-serif;
+  height: 100%
 }
 
 .signin-page {
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
+  min-height: 100%;
+  height: auto;
+  height: 100%;
 }
 
 .signin-form-container {

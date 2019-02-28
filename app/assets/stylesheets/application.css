@@ -13,3 +13,92 @@
  *= require_tree .
  *= require_self
  */
+
+body main {
+  background: rgb(21, 21, 21);
+  min-height: 100%;
+  height: auto;
+  height: 100%;
+}
+
+.body {
+  background: rgb(21, 21, 21);
+  min-height: 100%;
+  height: auto;
+  height: 100%;
+}
+
+.header {
+  position: fixed;
+  z-index: 3;
+  background: rgb(35, 35, 35);
+  opacity: 0.8;
+  height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  margin: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-header-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 150px;
+  height: 90%;
+}
+
+.header-left-space {
+  display: flex;
+  width: 20px;
+  height: 50px;
+}
+
+.header-logo-text {
+  color: white;
+  font-size: 16pt;
+  font-family: 'Oswald', sans-serif;
+}
+
+.right-header-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 90%;
+  width: 300px;
+}
+
+.greeting-signin > a{
+  color: #3ea6ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.greeting-user-btn {
+  display: inline;
+  background: blueviolet;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  /* padding updown leftright */
+  padding: 6px 9px;
+  border: 0px solid;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+
+.header-right-space {
+  width: 20px;
+  height: 50px;
+}
