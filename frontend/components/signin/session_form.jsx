@@ -1,6 +1,5 @@
 import React from 'react';
-// import logo from './nutube_logo2.png';
-
+import { clearSessionErrors } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
 
@@ -25,16 +24,18 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    // document.getElementsByClassName("header")[0].style.visibility= "visible";
   }
 
   renderErrors() {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <li className="signin-error" key={`error-${i}`}>
-            {error}
-          </li>
+          <div>
+            <br/>
+            <li className="signin-error" key={`error-${i}`}>
+              {error}
+            </li>
+          </div>
         ))}
       </ul>
     );
@@ -49,18 +50,30 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const usernameInput = (this.props.formType === 'Sign up') ? (
+    const usernameInput = (this.props.formType === 'Create your NuTube Account') ? (
       <div className="signin-float-label">
         <label>
-          <input className="signin-input" type="text" placeholder="Username" value={this.state.username} onChange={this.update('username')} />
+          <input className="signin-input" 
+            type="text" placeholder="Username" 
+            value={this.state.username} 
+            onChange={this.update('username')} />
         </label>
       </div>
     ) : (
       <br/>
     );
 
-    // document.getElementsByClassName("header")[0] ? (
-    //   document.getElementsByClassName("header")[0].style.visibility= "hidden") : ( null );
+    const demo = (this.props.formType === 'Sign in') ? (
+      <div className="signin-demo">
+        <input className="signin-btn" 
+          type="submit" 
+          value="Demo" 
+          onClick={this.demoLogin()} />
+      </div>
+    ) : (
+      <div></div>
+    );
+
     return(
       <div className="signin-page">
         <div className="signin-form-container">
@@ -70,7 +83,7 @@ class SessionForm extends React.Component {
               &nbsp;
               <h1 className="logo-text">NuTube</h1>
             </div>
-            <br/>
+            {/* <br/> */}
             <h2>{this.props.formType}</h2>
             <br/>
             <h3>to continue to NuTube</h3>
@@ -79,19 +92,29 @@ class SessionForm extends React.Component {
               {usernameInput}
               <div className="signin-float-label">
                 <label>
-                  <input className="signin-input" type="text" placeholder="Email" value={this.state.email} autoFocus onChange={this.update('email')} />
+                  <input className="signin-input" 
+                    type="text" 
+                    placeholder="Email" 
+                    value={this.state.email} 
+                    autoFocus 
+                    onChange={this.update('email')} />
                 </label>
               </div>
               <div className="signin-float-label">
                 <label>
-                  <input className="signin-input" type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
+                  <input className="signin-input" 
+                    type="password" 
+                    placeholder="Password" 
+                    value={this.state.password} 
+                    onChange={this.update('password')} />
                 </label>
               </div>
               <div className="signin-bottom-container">
-                {this.props.navLink}
-                <div className="signin-demo">
-                  <input className="signin-btn" type="submit" value="Demo" onClick={this.demoLogin()} />
+                <div className="signin-link" onClick={this.props.clearErrors}>
+                  {/* navLink here */}
+                  {this.props.navLink}
                 </div>
+                {demo}
                 <input className="signin-btn" type="submit" value="Next" />
               </div>
               <br/>

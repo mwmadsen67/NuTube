@@ -12,6 +12,11 @@ class NavBar extends React.Component {
             <img id='logo' src={window.images.logo} width="30" height="21"/>
             &nbsp;
             <h1 className="header-logo-text">NuTube</h1>
+            <div className="header-left-space"></div>            
+          </div>
+          <div className="search-container">
+            <input className="search-bar" type="input" placeholder="Search" />
+            <button className="search-button"></button>
           </div>
           <div className="right-header-container">
             <GreetingContainer /> 
