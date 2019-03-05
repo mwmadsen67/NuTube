@@ -1,3 +1,62 @@
 // Place all the styles related to the api/videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.index-container > h1 {
+  color: white;
+  font-size: 14pt;
+}
+
+.index-space-container {
+  display: flex;
+}
+
+.index-top-spacer {
+  width: 100px;
+  height: 70px;
+}
+
+.index-left-spacer {
+  width: 90px;
+  height: 1000px;
+}
+
+span {
+  color: white;
+}
+
+.show-video > h1 {
+  color: white;
+  font-size: 72pt;
+}
+
+.show-video {
+  display: flex;
+}
+
+.show-top-spacer {
+  width: 100px;
+  height: 70px;
+}
+
+.show-left-spacer {
+  width: 30px;
+  height: 1000px;
+}
+
+.video-index-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.video-image-crop {
+  width: 210px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.video-image-crop img {
+  width: 300px;
+}

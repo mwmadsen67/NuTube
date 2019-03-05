@@ -3,7 +3,8 @@ class Api::VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    @video.video.attach(params[:video][:video])
+    @video.video_attach.attach(params[:video][:video_attach])
+    @video.image.attach(params[:video][:image])
     if @video.save!
       render :show
     else
@@ -37,7 +38,7 @@ class Api::VideosController < ApplicationController
   end
 
   def video_params
-    params.require(:video).permit(:title, :length, :user_id, :video)
+    params.require(:video).permit(:title, :length, :user_id, :video_attach, :image)
   end
 
 end

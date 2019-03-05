@@ -7,7 +7,8 @@ class Video < ApplicationRecord
   belongs_to :user
 
   # Active Storage Association
-  has_one_attached :video
+  has_one_attached :video_attach
+  has_one_attached :image
 
   def duration(seconds)
     sec_remainder = seconds % 60

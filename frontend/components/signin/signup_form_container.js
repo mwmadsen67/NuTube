@@ -8,7 +8,7 @@ const mapStateToProps = state => {
 
   return({
     errors: state.errors.session,
-    formType: 'Create your NuTube Account',
+    formType: 'Create your Account',
     navLink: <Link to='/signin'>Sign in instead</Link>
   });
 };

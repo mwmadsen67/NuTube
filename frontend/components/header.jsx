@@ -1,17 +1,28 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 
 class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
   
+  handleClick(){
+    this.props.history.push(`/`);
+  }
+
   render() {
     return(
       <div className="header">
         <div className="header-container">
           <div className="left-header-container">
             <div className="header-left-space"></div>
-            <img id='logo' src={window.images.logo} width="30" height="21"/>
-            &nbsp;
-            <h1 className="header-logo-text">NuTube</h1>
+            <div className="left-header-button" onClick={this.handleClick}>
+              <img id='logo' src={window.images.logo} width="30" height="21"/>
+              &nbsp;
+              <h1 className="header-logo-text">NuTube</h1>
+            </div>
             <div className="header-left-space"></div>            
           </div>
           <div className="search-container">
@@ -28,4 +39,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);
