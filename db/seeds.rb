@@ -11,7 +11,7 @@ demo = User.create({username: "sergeybrin", email: "sergeybrin@nutube.com", pass
 mike = User.create({username: "mike", email: "mike@nutube.com", password: "123456"})
 
 testvid1 = Video.create({title: "testvid1", description: "this is the first test video", length: 50, user_id: 1})
-video1 = File.open('app/assets/images/test_video.mp4')
-testvid1.video_attach.attach(io: video1, filename: 'testvid1')
-img1 = File.open('app/assets/images/test_img.png')
+video1 = open("https://s3-us-west-1.amazonaws.com/nutube-dev/Pexels+Videos+1899099.mp4")
+testvid1.video_attach.attach(io: video1, filename: 'icicles')
+img1 = open("https://s3-us-west-1.amazonaws.com/nutube-dev/test_img.png")
 testvid1.image.attach(io: img1, filename: 'testimg1')

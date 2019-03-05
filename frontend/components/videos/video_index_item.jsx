@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import VideoShowContainer from './video_show_container';
 
 class VideoIndexItem extends React.Component {
   constructor(props) {
@@ -15,12 +14,17 @@ class VideoIndexItem extends React.Component {
 
   render(){
     // debugger
-    const { title } = this.props.video;
+    const video = this.props.video;
+    if (video === null) {
+      return null;
+    }
     return (
       <div className="video-index-item" onClick={this.handleClick}>
-        <div className="video-image-crop"><img src={this.props.video.imageUrl} /></div>
+        <div className="video-image-crop"><img src={video.imageUrl} /></div>
         &nbsp;
-        <span className="video-item-title">{title}</span>
+        <span className="video-item-title">{video.title}</span>
+        &nbsp;
+        <span className="video-item-username">{video.username}</span>
         &nbsp;
       </div>
     );

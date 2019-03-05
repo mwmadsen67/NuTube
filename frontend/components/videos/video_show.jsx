@@ -6,15 +6,11 @@ class VideoShow extends React.Component {
   componentDidMount() {
     this.props.requestVideo(this.props.videoId);
   }
-
-  // const showVideo = requestVideo(videoId);
-  // debugger
   
   render (){
-    // debugger
 
-
-    if (this.props.video === undefined) {
+    const video = this.props.video;
+    if (video === undefined) {
       return null;
     }
 
@@ -25,10 +21,21 @@ class VideoShow extends React.Component {
           <div className="show-top-spacer"></div>
           <div className='show-video'>
             <div className="show-left-spacer"></div>
-              <video width="791" height="445" controls>
-                <source src={this.props.video.videoUrl} type="video/mp4" autoPlay></source>
-              </video>
-              {/* <h1>{video.title}</h1> */}
+              <div className="show-video-area">
+                <video width="100%" height="auto" controls>
+                  <source src={video.videoUrl} type="video/mp4"></source>
+                </video>
+                &nbsp;
+                <h1>{video.title}</h1>
+                &nbsp;
+                <div className="show-video-user">
+                  <button className="show-video-user-btn">
+                    {video.username[0].toUpperCase()}
+                  </button>
+                  <div className="show-video-user-spacer"></div>
+                  <h3>{video.username}</h3>
+                </div>
+              </div>
           </div>
         </div>
       </div>

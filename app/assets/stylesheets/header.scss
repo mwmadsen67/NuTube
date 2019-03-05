@@ -20,6 +20,10 @@
   justify-content: space-between;
 }
 
+.header-bars {
+  cursor: pointer;
+}
+
 .left-header-container {
   display: flex;
   justify-content: flex-start;
@@ -103,10 +107,27 @@
   width: 300px;
 }
 
+.header-upload {
+  // width: 41px;
+  // height: 41px;
+  cursor: pointer;
+}
+
+.header-right-vid-spacer {
+  height: 40px;
+  width: 30px;
+}
+
+.greeting-spacer {
+  width: 57px;
+  height: 3px;
+}
+
 .greeting-signin > a{
   color: #3ea6ff;
   text-decoration: none;
   font-weight: bold;
+  font-size: 12pt;
 }
 
 .greeting-user-btn {

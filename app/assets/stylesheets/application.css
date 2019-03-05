@@ -16,6 +16,7 @@
 
 body main {
   background: rgb(21, 21, 21);
+  width: 100%;
   min-height: 100%;
   height: auto;
   height: 100%;
@@ -23,6 +24,7 @@ body main {
 
 .body {
   background: rgb(21, 21, 21);
+  width: 100%;
   min-height: 100%;
   height: auto;
   height: 100%;
