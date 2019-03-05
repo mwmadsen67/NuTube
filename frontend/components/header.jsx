@@ -24,7 +24,6 @@ class NavBar extends React.Component {
         <div className="header-container">
           <div className="left-header-container">
             <FontAwesomeIcon icon="bars" size="lg" color="white" />
-            {/* <img className="header-bars" id='bars' src={window.images.bars} width="24" height="24" /> */}
             <div className="header-left-space"></div>
             <div className="left-header-button" onClick={this.handleClick}>
               <img id='logo' src={window.images.logo} width="30" height="21"/>
@@ -40,7 +39,6 @@ class NavBar extends React.Component {
           <div className="right-header-container">
             <div className="header-upload" onClick={this.videoClick}>
               <FontAwesomeIcon icon="video" size="lg" color="white" />
-              {/* <img className="header-vidup" id="video_add" src={window.images.video_add} width="48" height="48" /> */}
             </div>
             <div className="header-right-vid-spacer"></div>
             <GreetingContainer /> 
