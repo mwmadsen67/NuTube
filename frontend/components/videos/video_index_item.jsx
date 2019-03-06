@@ -21,11 +21,8 @@ class VideoIndexItem extends React.Component {
     return (
       <div className="video-index-item" onClick={this.handleClick}>
         <div className="video-image-crop"><img src={video.imageUrl} /></div>
-        &nbsp;
         <span className="video-item-title">{video.title}</span>
-        &nbsp;
         <span className="video-item-username">{video.username}</span>
-        &nbsp;
       </div>
     );
   }

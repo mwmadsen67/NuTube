@@ -34,7 +34,9 @@ class NavBar extends React.Component {
           </div>
           <div className="search-container">
             <input className="search-bar" type="input" placeholder="Search" />
-            <button className="search-button"></button>
+            <button className="search-button">
+              <FontAwesomeIcon className="search-icon" icon="search" color="rgb(100, 100, 100)" />
+            </button>
           </div>
           <div className="right-header-container">
             <div className="header-upload" onClick={this.videoClick}>

@@ -9,7 +9,7 @@ class VideoNew extends React.Component {
     this.state = {
       title: '',
       description: '',
-      length: 0,
+      length: '',
       videoUrl: null,
       imageFile: null,
       imageUrl: null,
@@ -81,15 +81,17 @@ class VideoNew extends React.Component {
   }
   
   render() {
-    const preview = (this.state.imageUrl) ? <img width="100px" height="100px" src={this.state.imageUrl} /> : null;
+    const preview = (this.state.imageUrl) ? <img width="200px" height="120px" src={this.state.imageUrl} /> : null;
     const uploadBtn = (this.state.videoUrl === null || this.state.imageUrl === null) ? "new-video-upload-btn-container" : "hidden-btn";
     const videoFields = (this.state.videoUrl !== null && this.state.imageUrl !== null) ? "new-video-fields" : "hidden-fields";
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
         <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" spin />
+        <h3>Upload status: Processing your video...</h3>
       </div>
     ) : (
       <div className="new-video-submit-container">
+        <h2>Click "Publish to make your video live.</h2>
         <input className="new-video-submit-btn" type="submit" value="Publish" />
       </div>
     );
@@ -100,28 +102,42 @@ class VideoNew extends React.Component {
         <div className="new-lower-video-container">
           <div className="new-inner-upload-container">
             <div className="new-upload">
-              <form onSubmit={this.handleSubmit}>
+              <form className="new-upload-form" onSubmit={this.handleSubmit}>
                 <div className={uploadBtn}>
+                {/* <div className="hidden-btn" > */}
+                {/* TEMPORARY TESTING */}
                   <label htmlFor="new-video-upload-input">
                     <FontAwesomeIcon className="new-video-upload-btn" icon="arrow-alt-circle-up" size="4x" color="white" />
                     <input id="new-video-upload-input" onChange={this.handleVideo} type="file" accept="video/*" />
                   </label>
+                  &nbsp;
                   <h3>Select video to upload</h3>
                 </div>
-                <div className="upload-spacer"></div>
                 <div className={uploadBtn}>
+                {/* <div className="hidden-btn" > */}
+                {/* TEMPORARY TESTING */}
                   <label htmlFor="new-img-upload-input">
                     <FontAwesomeIcon className="new-video-upload-btn" icon={['far', 'arrow-alt-circle-up']} size="4x" color="white" />
                     <input id="new-img-upload-input" onChange={this.handlePreview} type="file" accept="image/*" />
                   </label>
+                  &nbsp;
                   <h3>Select preview image</h3>
                 </div>
                 <div className={videoFields}>
-                  {this.renderErrors()}
-                  {preview}
-                  <div className="new-video-title-container">
+                {/* <div className="new-video-fields" > */}
+                {/* TEMPORARY TESTING */}
+                  <div className="new-upper-field">
+                    <div className="new-upper-left">
+                      {preview}
+                    </div>
+                    <div className="new-publish">
+                      {this.renderErrors()}
+                      {loading}
+                    </div>
+                  </div>
+                  <div className="new-video-input-container">
                     <label>
-                      <input className="new-video-title" 
+                      <input className="new-video-input" 
                         type="text" 
                         placeholder="Title" 
                         value={this.state.title} 
@@ -129,25 +145,25 @@ class VideoNew extends React.Component {
                         onChange={this.update('title')} />
                     </label>
                   </div>
-                  <div className="new-video-description-container">
+                  <div className="new-video-input-container">
                     <label>
-                      <input className="new-video-description" 
+                      <textarea className="new-video-description" 
                         type="text" 
-                        placeholder="description" 
+                        placeholder="Description" 
                         value={this.state.description}  
-                        onChange={this.update('description')} />
+                        onChange={this.update('description')}>
+                      </textarea>
                     </label>
                   </div>
-                  <div className="new-video-length-container">
+                  <div className="new-video-input-container">
                     <label>
-                      <input className="new-video-length" 
+                      <input className="new-video-input" 
                         type="text" 
-                        placeholder="length" 
+                        placeholder="Length" 
                         value={this.state.length}  
                         onChange={this.update('length')} />
                     </label>
                   </div>
-                  {loading}
                 </div>
               </form>
             </div>

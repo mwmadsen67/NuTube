@@ -78,8 +78,9 @@
   /* border-top-right-radius: 0px;
   border-bottom-right-radius: 0px; */
 }
+
 .search-bar:focus {
-  border-color: #3ea6ff;
+  border-color: #1b8ef3;
 }
 
 .search-button {
@@ -91,7 +92,20 @@
   border-radius: 2px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+  cursor: pointer;
+  
 }
+
+.search-icon {
+  font-size: 11pt;
+}
+
+.search-button:hover {
+  .search-icon {
+    color: rgb(170, 170, 170);
+  }
+}
+
 
 /* .search-btn {
   display: flex;
