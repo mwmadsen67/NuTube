@@ -3,16 +3,16 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVideo, faBars, faArrowAltCircleUp as fasArrowAltCircleUp} from '@fortawesome/free-solid-svg-icons';
+import { faVideo, faBars, faSpinner, faArrowAltCircleUp as fasArrowAltCircleUp} from '@fortawesome/free-solid-svg-icons';
 import { faArrowAltCircleUp as farArrowAltCircleUp} from '@fortawesome/free-regular-svg-icons';
 
-library.add(faVideo, faBars, fasArrowAltCircleUp, farArrowAltCircleUp);
+library.add(faVideo, faBars, faSpinner, fasArrowAltCircleUp, farArrowAltCircleUp);
 
 import SigninFormContainer from './signin/signin_form_container';
 import SignupFormContainer from './signin/signup_form_container';
 import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
-import VideoNew from './videos/video_new';
+import VideoNewContainer from './videos/video_new_container';
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/pro_route_util';
 
@@ -21,7 +21,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path='/signin' component={SigninFormContainer} />
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
-      <ProtectedRoute exact path='/new' component={VideoNew} />
+      <ProtectedRoute exact path='/new' component={VideoNewContainer} />
       <Route path='/:videoId' component={VideoShowContainer} />
       <Route exact path='/' component={VideoIndexContainer} />
       {/* <Route path='/' component={Header}/> */}

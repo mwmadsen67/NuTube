@@ -43,8 +43,8 @@ export const requestVideo = (id) => dispatch => (
   err => dispatch(receiveVideoErrors(err.responseJSON)))
 );
 
-export const createVideo = (video) => dispatch => (
-  VideoApiUtil.createVideo(video).then( video => dispatch(receiveVideo(video)),
+export const createVideo = (videoData) => dispatch => (
+  VideoApiUtil.createVideo(videoData).then( video => dispatch(receiveVideo(video)),
   err => dispatch(receiveVideoErrors(err.responseJSON)))
 );
 

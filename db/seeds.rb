@@ -7,10 +7,10 @@
 # #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-demo = User.create({username: "sergeybrin", email: "sergeybrin@nutube.com", password: "demologin"})
-mike = User.create({username: "mike", email: "mike@nutube.com", password: "123456"})
+demo = User.create({username: "Sergey Brin", email: "sergeybrin@nutube.com", password: "demologin"})
+mike = User.create({username: "Mike", email: "mike@nutube.com", password: "youtubesucks"})
 
-testvid1 = Video.create({title: "testvid1", description: "this is the first test video", length: 50, user_id: 1})
+testvid1 = Video.create({title: "HD Icicles", description: "This is a test video showing icicles dripping some water", length: 16, user_id: 1})
 video1 = open("https://s3-us-west-1.amazonaws.com/nutube-dev/Pexels+Videos+1899099.mp4")
 testvid1.video_attach.attach(io: video1, filename: 'icicles')
 img1 = open("https://s3-us-west-1.amazonaws.com/nutube-dev/test_img.png")

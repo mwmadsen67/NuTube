@@ -12,11 +12,11 @@ export const fetchVideo = id => (
   })
 );
 
-export const createVideo = video => (
+export const createVideo = videoData => (
   $.ajax({
     method: 'POST',
     url: 'api/videos',
-    data: video,
+    data: videoData,
     contentType: false,
     processData: false
   })
