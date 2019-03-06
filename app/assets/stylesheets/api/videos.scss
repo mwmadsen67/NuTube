@@ -298,6 +298,13 @@ span {
   align-items: flex-end;
 }
 
+.edit-video-submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
 .new-video-loading {
   display: flex;
   flex-direction: column;
@@ -329,11 +336,43 @@ span {
   width: 120px;
   font-size: 9pt;
   border: 0px solid;
+  cursor: pointer;
 }
 
 .new-video-submit-btn:hover {
   background: #0f54c2;
+}
+
+.delete-video {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-video > h2 {
+  font-size: 11pt;
+  color: #dadce0;
+}
+
+.delete-video-btn {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  background: #c01111;
+  padding: 0 10px;
+  border-radius: 2px;
+  height: 28px;
+  width: 120px;
+  font-size: 9pt;
+  border: 0px solid;
   cursor: pointer;
+}
+
+.delete-video-btn:hover {
+  background: #5c0a0a;
 }
 
 .new-video-input-container {

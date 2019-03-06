@@ -33,7 +33,6 @@ class Api::VideosController < ApplicationController
     video = Video.find(params[:id])
     if current_user.id == video.user_id
       video.destroy
-      render :index
     end
   end
 

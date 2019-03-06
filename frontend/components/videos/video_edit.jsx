@@ -6,22 +6,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class VideoEdit extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   title: this.state.video.title,
-    //   description: this.state.video.description,
-    //   length: this.state.video.length,
-    //   videoUrl: this.state.video.videoUrl,
-    //   imageFile: null,
-    //   imageUrl: this.state.video.imageUrl,
-    //   loading: false
-    // };
+    this.state = {
+      title: this.props.video.title,
+      description: this.props.video.description,
+      length: this.props.video.length,
+      videoUrl: this.props.video.videoUrl,
+      imageFile: null,
+      imageUrl: this.props.video.imageUrl,
+      userId: this.props.video.userId,
+      username: this.props.video.username,
+      loading: false
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.goVideo = this.goVideo.bind(this);
+    this.goHome = this.goHome.bind(this);
   }
 
   goVideo() {
-    this.props.history.push(`/${this.props.video.id}`);
+    this.props.history.push(`/${this.props.videoId}`);
+  }
+
+  goHome() {
+    debugger
+    this.props.history.push('/');
   }
 
   update(field) {
@@ -32,16 +41,25 @@ class VideoEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('video[title]', this.state.title);
-    formData.append('video[description]', this.state.description);
-    formData.append('video[length]', parseInt(this.state.length));
 
     this.setState({
       loading: true
     });
 
-    this.props.updateVideo(formData).then(res => this.goVideo());
+    const video = {
+      id: this.props.video.id,
+      title: this.state.title,
+      description: this.state.description,
+      length: this.state.length
+    };
+
+    this.props.updateVideo(video).then(res => this.goVideo());
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.props.deleteVideo(this.props.videoId).then(res => this.goHome());
   }
 
   renderErrors() {
@@ -59,31 +77,41 @@ class VideoEdit extends React.Component {
     );
   }
 
-  componentDidMount(){
-    this.setState({
-      title: this.props.video.title,
-      description: this.props.video.description,
-      length: this.props.video.length,
-      videoUrl: this.props.video.videoUrl,
-      imageUrl: this.props.video.imageUrl,
-    })
-  }
+  // componentDidMount(){
+  //   debugger
+  //   this.setState({
+  //     title: this.props.video.title,
+  //     description: this.props.video.description,
+  //     length: this.props.video.length,
+  //     videoUrl: this.props.video.videoUrl,
+  //     imageUrl: this.props.video.imageUrl,
+  //   })
+  // }
 
   render(){
-
-    const preview = (this.state.imageUrl) ? <img width="200px" height="120px" src={this.state.imageUrl} /> : null;
+    
+    const preview = (this.state.imageUrl) ? <img width="200px" height="120px" src={this.state.imageUrl} /> : <div></div>;
 
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
         <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" spin />
+        &nbsp;
         <h3>Upload status: Processing your changes...</h3>
       </div>
     ) : (
-      <div className="new-video-submit-container">
-        <h2>Click "Publish" to make your video live.</h2>
-        <input className="new-video-submit-btn" type="submit" value="Publish" />
+      <div className="edit-video-submit">
+        <div className="new-video-submit-container">
+          <h2>Click "Save" to finalize your changes.</h2>
+          <input className="new-video-submit-btn" type="submit" value="Save" />
+        </div>
+        <div className="delete-video">
+          <h2>Click "Delete" to remove your video.</h2>
+          <button className="delete-video-btn" onClick={this.handleDelete}>Delete</button>
+        </div>
       </div>
     );
+
+    const desc = (this.state.description || '');
 
     return(
       <div className="new-video-container">
@@ -118,7 +146,7 @@ class VideoEdit extends React.Component {
                       <textarea className="new-video-description" 
                         type="text" 
                         placeholder="Description" 
-                        value={this.state.description}  
+                        value={desc}  
                         onChange={this.update('description')}>
                       </textarea>
                     </label>

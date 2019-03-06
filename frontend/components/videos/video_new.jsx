@@ -18,11 +18,11 @@ class VideoNew extends React.Component {
     this.handleVideo = this.handleVideo.bind(this);
     this.handlePreview = this.handlePreview.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.goVideo = this.goVideo.bind(this);
+    this.goHome = this.goHome.bind(this);
   }
 
-  goVideo() {
-    this.props.history.push(`/${this.props.video.id}`);
+  goHome() {
+    this.props.history.push('/');
   }
   
   handleVideo(e) {
@@ -60,7 +60,7 @@ class VideoNew extends React.Component {
       loading: true
     });
 
-    this.props.createVideo(formData).then(res => this.goVideo());
+    this.props.createVideo(formData).then(res => this.goHome());
   }
 
   renderErrors() {
@@ -85,6 +85,7 @@ class VideoNew extends React.Component {
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
         <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" spin />
+        &nbsp;
         <h3>Upload status: Processing your video...</h3>
       </div>
     ) : (

@@ -26,7 +26,12 @@ export const updateVideo = video => (
   $.ajax({
     method: 'PATCH',
     url: `api/videos/${video.id}`,
-    data: { video }
+    data: { video: {
+      title: video.title,
+      description: video.description,
+      length: video.length
+      }
+    }
   })
 );
 

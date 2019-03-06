@@ -10,7 +10,7 @@ class VideoShow extends React.Component {
   }
 
   videoEdit(){
-    this.props.history.push('/edit');    
+    this.props.history.push(`/${this.props.videoId}/edit`);    
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class VideoShow extends React.Component {
       return null;
     }
     
-    const editBtn = (this.props.currentUser === video.userId) ? (
+    const editBtn = (this.props.currentUser.id === video.userId) ? (
       <button className="show-video-edit" onClick={this.videoEdit}>Edit Video</button>
     ) : (
       <div></div>
