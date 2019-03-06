@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo, faBars, faSpinner, faSearch, faArrowAltCircleUp as fasArrowAltCircleUp} from '@fortawesome/free-solid-svg-icons';
 import { faArrowAltCircleUp as farArrowAltCircleUp} from '@fortawesome/free-regular-svg-icons';
 
@@ -13,6 +12,7 @@ import SignupFormContainer from './signin/signup_form_container';
 import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import VideoNewContainer from './videos/video_new_container';
+import VideoEditContainer from './videos/video_edit_container';
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/pro_route_util';
 
@@ -22,9 +22,9 @@ const App = () => (
       <AuthRoute exact path='/signin' component={SigninFormContainer} />
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
       <ProtectedRoute exact path='/new' component={VideoNewContainer} />
+      <ProtectedRoute exact path='/:videoId/edit' component={VideoEditContainer} />
       <Route path='/:videoId' component={VideoShowContainer} />
       <Route exact path='/' component={VideoIndexContainer} />
-      {/* <Route path='/' component={Header}/> */}
       <Route render={() => <Redirect to={{pathname: '/'}} />} />
     </Switch>
   </div>

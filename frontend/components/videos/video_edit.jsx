@@ -3,20 +3,19 @@ import { withRouter } from 'react-router';
 import Header from '../header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class VideoNew extends React.Component {
-  constructor(props) {
+class VideoEdit extends React.Component {
+  constructor(props){
     super(props);
-    this.state = {
-      title: '',
-      description: '',
-      length: '',
-      videoUrl: null,
-      imageFile: null,
-      imageUrl: null,
-      loading: false
-    };
-    this.handleVideo = this.handleVideo.bind(this);
-    this.handlePreview = this.handlePreview.bind(this);
+    // this.state = {
+    //   title: this.state.video.title,
+    //   description: this.state.video.description,
+    //   length: this.state.video.length,
+    //   videoUrl: this.state.video.videoUrl,
+    //   imageFile: null,
+    //   imageUrl: this.state.video.imageUrl,
+    //   loading: false
+    // };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.goVideo = this.goVideo.bind(this);
   }
@@ -24,43 +23,25 @@ class VideoNew extends React.Component {
   goVideo() {
     this.props.history.push(`/${this.props.video.id}`);
   }
-  
-  handleVideo(e) {
-    this.setState({videoUrl: e.currentTarget.files[0]});
-  }
-  
-  handlePreview(e) {
-    const img = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ imageFile: img, imageUrl: fileReader.result });
-    }; 
-    if (img) {
-      fileReader.readAsDataURL(img);
-    }
-  }
 
   update(field) {
     return e => this.setState({
       [field]: e.target.value
     });
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append('video[title]', this.state.title);
     formData.append('video[description]', this.state.description);
     formData.append('video[length]', parseInt(this.state.length));
-    formData.append('video[user_id]', this.props.currentUser.id);
-    formData.append('video[video_attach]', this.state.videoUrl);
-    formData.append('video[image]', this.state.imageFile);
 
     this.setState({
       loading: true
     });
 
-    this.props.createVideo(formData).then(res => this.goVideo());
+    this.props.updateVideo(formData).then(res => this.goVideo());
   }
 
   renderErrors() {
@@ -77,15 +58,25 @@ class VideoNew extends React.Component {
       </ul>
     );
   }
-  
-  render() {
+
+  componentDidMount(){
+    this.setState({
+      title: this.props.video.title,
+      description: this.props.video.description,
+      length: this.props.video.length,
+      videoUrl: this.props.video.videoUrl,
+      imageUrl: this.props.video.imageUrl,
+    })
+  }
+
+  render(){
+
     const preview = (this.state.imageUrl) ? <img width="200px" height="120px" src={this.state.imageUrl} /> : null;
-    const uploadBtn = (this.state.videoUrl === null || this.state.imageUrl === null) ? "new-video-upload-btn-container" : "hidden-btn";
-    const videoFields = (this.state.videoUrl !== null && this.state.imageUrl !== null) ? "new-video-fields" : "hidden-fields";
+
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
         <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" spin />
-        <h3>Upload status: Processing your video...</h3>
+        <h3>Upload status: Processing your changes...</h3>
       </div>
     ) : (
       <div className="new-video-submit-container">
@@ -93,7 +84,8 @@ class VideoNew extends React.Component {
         <input className="new-video-submit-btn" type="submit" value="Publish" />
       </div>
     );
-    return (
+
+    return(
       <div className="new-video-container">
         <Header />
         <div className="new-upper-spacer"></div>
@@ -101,29 +93,7 @@ class VideoNew extends React.Component {
           <div className="new-inner-upload-container">
             <div className="new-upload">
               <form className="new-upload-form" onSubmit={this.handleSubmit}>
-                <div className={uploadBtn}>
-                {/* <div className="hidden-btn" > */}
-                {/* TEMPORARY TESTING */}
-                  <label htmlFor="new-video-upload-input">
-                    <FontAwesomeIcon className="new-video-upload-btn" icon="arrow-alt-circle-up" size="4x" color="white" />
-                    <input id="new-video-upload-input" onChange={this.handleVideo} type="file" accept="video/*" />
-                  </label>
-                  &nbsp;
-                  <h3>Select video to upload</h3>
-                </div>
-                <div className={uploadBtn}>
-                {/* <div className="hidden-btn" > */}
-                {/* TEMPORARY TESTING */}
-                  <label htmlFor="new-img-upload-input">
-                    <FontAwesomeIcon className="new-video-upload-btn" icon={['far', 'arrow-alt-circle-up']} size="4x" color="white" />
-                    <input id="new-img-upload-input" onChange={this.handlePreview} type="file" accept="image/*" />
-                  </label>
-                  &nbsp;
-                  <h3>Select preview image</h3>
-                </div>
-                <div className={videoFields}>
-                {/* <div className="new-video-fields" > */}
-                {/* TEMPORARY TESTING */}
+                <div className="new-video-fields">
                   <div className="new-upper-field">
                     <div className="new-upper-left">
                       {preview}
@@ -169,6 +139,7 @@ class VideoNew extends React.Component {
         </div>
       </div>
     );
-  } 
+  }
 }
-export default withRouter(VideoNew);
+
+export default withRouter(VideoEdit);

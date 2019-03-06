@@ -1,7 +1,17 @@
 import React from 'react';
 import Header from '../header';
+import { withRouter } from 'react-router';
 
 class VideoShow extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.videoEdit = this.videoEdit.bind(this);
+  }
+
+  videoEdit(){
+    this.props.history.push('/edit');    
+  }
 
   componentDidMount() {
     this.props.requestVideo(this.props.videoId);
@@ -13,6 +23,12 @@ class VideoShow extends React.Component {
     if (video === undefined) {
       return null;
     }
+    
+    const editBtn = (this.props.currentUser === video.userId) ? (
+      <button className="show-video-edit" onClick={this.videoEdit}>Edit Video</button>
+    ) : (
+      <div></div>
+    );
 
     return(
       <div className='show-video-page'>
@@ -29,11 +45,15 @@ class VideoShow extends React.Component {
                 <h1>{video.title}</h1>
                 &nbsp;
                 <div className="show-video-user">
-                  <button className="show-video-user-btn">
-                    {video.username[0].toUpperCase()}
-                  </button>
-                  <div className="show-video-user-spacer"></div>
-                  <h3>{video.username}</h3>
+                  <div className="show-video-user-info">
+                    <button className="show-video-user-btn">
+                      {video.username[0].toUpperCase()}
+                    </button>
+                    <div className="show-video-user-spacer"></div>
+                    <h3>{video.username}</h3>
+                    <h3>{video.description}</h3>
+                  </div>
+                  {editBtn}
                 </div>
               </div>
           </div>
@@ -44,4 +64,4 @@ class VideoShow extends React.Component {
   }
 }
 
-export default VideoShow;
+export default withRouter(VideoShow);

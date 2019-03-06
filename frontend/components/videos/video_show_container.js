@@ -7,7 +7,8 @@ const mapStateToProps = (state, { match }) => {
   const videoId = match.params.videoId;
   return {
     videoId,
-    video: state.entities.videos[videoId]
+    video: state.entities.videos[videoId],
+    currentUser: state.entities.users[state.session.id]
   };
 };
 

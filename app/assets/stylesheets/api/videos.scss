@@ -55,7 +55,7 @@ span {
   font-size: 14pt;
 }
 
-.show-video-user > h3 {
+.show-video-user-info > h3 {
   color: white;
 }
 
@@ -79,8 +79,13 @@ span {
   width: 60%;
   height: auto;
 }
-
 .show-video-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show-video-user-info {
   display: flex;
   align-items: center;
 }
@@ -102,6 +107,25 @@ span {
 .show-video-user-spacer {
   width: 12px;
   height: auto;
+}
+
+.show-video-edit {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  background: #1a73e8;
+  padding: 0 10px;
+  border-radius: 2px;
+  height: 28px;
+  width: 120px;
+  font-size: 10pt;
+  border: 0px solid;
+}
+
+.show-video-edit {
+  background: #0f54c2;
+  cursor: pointer;
 }
 
 // video {
@@ -131,6 +155,13 @@ span {
   cursor: pointer;
 }
 
+.video-image-container {
+  display: inline-flex;
+  width: 210px;
+  height: 120px;
+  position: relative;
+}
+
 .video-image-crop {
   width: 210px;
   height: 120px;
@@ -139,6 +170,18 @@ span {
 
 .video-image-crop img {
   width: 300px;
+}
+
+.video-item-duration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 4px;
+  background: rgb(20, 20, 20);
+  opacity: 0.85;
+  padding: 1px 3px 1px 3px;
+  border-radius: 2px;
+  font-size: 10pt;
 }
 
 .new-video-container {
@@ -275,8 +318,6 @@ span {
 }
 
 .new-video-submit-btn {
-  // border-color: #167ac6;
-  // background: #167ac6;
   color: white;
   font-family: 'Roboto', sans-serif;
   display: flex;
