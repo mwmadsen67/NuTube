@@ -53,3 +53,4 @@ Stay tuned as NuTube's creator is actively working on improving the site with th
 * Video Search
 * Displayed Number of Video Plays
 * User Channels
+* Toggle Day Mode
