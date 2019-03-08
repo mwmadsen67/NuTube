@@ -21,6 +21,7 @@ NuTube includes the following features:
 * Logged in users can like and dislike videos
 * New videos are instantly featured on the front page of the website
 * Comments are disabled on all videos, to preserve a non-toxic video sharing community
+* Site is in Dark Mode to reduce strain on users' eyes
 
 ## Video Upload
 
