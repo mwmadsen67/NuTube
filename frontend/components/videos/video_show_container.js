@@ -6,7 +6,6 @@ import VideoShow from './video_show';
 
 const mapStateToProps = (state, { match }) => {
   const videoId = match.params.videoId;
-  // debugger
   return {
     videoId,
     video: state.entities.videos[videoId],

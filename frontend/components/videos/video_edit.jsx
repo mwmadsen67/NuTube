@@ -52,7 +52,7 @@ class VideoEdit extends React.Component {
       length: this.state.length
     };
 
-    this.props.updateVideo(video).then(res => this.goVideo());
+    this.props.updateVideo(video).then(res => this.goHome());
   }
 
   handleDelete(e) {

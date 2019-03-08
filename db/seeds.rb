@@ -58,7 +58,7 @@ vidalexjones.video_attach.attach(io: videoalexjones, filename: 'jre')
 imgalexjones = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGhumananimal.png")
 vidalexjones.image.attach(io: imgalexjones, filename: 'alexjones')
 
-vidpizza = Video.create({title: "Binging with Babish Pizza Ball From the Eric Andre Show", description: "Time to deliver a pizzaballlll", length: 89, user_id: 13})
+vidpizza = Video.create({title: "Binging with Babish Pizza Ball | Eric Andre Show", description: "Time to deliver a pizzaballlll", length: 89, user_id: 13})
 videoball = open("https://s3-us-west-1.amazonaws.com/nutube-dev/Binging+with+Babish+Pizza+Ball+from+The+Eric+Andre+Show.mp4")
 vidpizza.video_attach.attach(io: videoball, filename: 'pizzaball')
 imgpizzaball = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGpizzabal.png")

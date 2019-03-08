@@ -126,7 +126,7 @@ class VideoShow extends React.Component {
                       <div className="show-video-user-spacer"></div>
                       <div className="show-video-user-info2">
                         <h3>{video.username}</h3>
-                        <h4>{video.createdAt}</h4>
+                        <h4>Published on {video.createdAt}</h4>
                       </div>
                     </div>
                     {editBtn}

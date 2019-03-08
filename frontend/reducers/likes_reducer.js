@@ -8,16 +8,16 @@ export const likesReducer = (state = {}, action) => {
       if (action.like) {
         return action.like;
       } else {
-        return null;
+        return state;
       }
     case RECEIVE_VIDEO:
       if (action.payload.likes) {
         return action.payload.likes;
       } else {
-        return null;
+        return state;
       };
     case REMOVE_LIKE:
-      return null;
+      return state;
     default:
       return state;
   }
@@ -30,16 +30,16 @@ export const dislikesReducer = (state = {}, action) => {
       if (action.dislike) {
         return action.dislike;
       } else {
-        return null;
+        return state;
       }
     case RECEIVE_VIDEO:
       if (action.payload.dislikes) {
         return action.payload.dislikes;
       } else {
-        return null;
+        return state;
       };
     case REMOVE_DISLIKE:
-      return null;
+      return state;
     default:
       return state;
   }
