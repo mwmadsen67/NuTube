@@ -84,7 +84,7 @@ class VideoNew extends React.Component {
     const videoFields = (this.state.videoUrl !== null && this.state.imageUrl !== null) ? "new-video-fields" : "hidden-fields";
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
-        <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" spin />
+        <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" pulse />
         &nbsp;
         <h3>Upload status: Processing your video...</h3>
       </div>

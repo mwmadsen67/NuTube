@@ -1,0 +1,31 @@
+// Place all the styles related to the api/likes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.likes {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.temp-plays {
+
+}
+
+.like-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+  background: transparent;
+  cursor: pointer;
+  border: 0px;
+}
+
+.like-btn > h3 {
+  font-size: 10pt;
+  color: rgb(150, 150, 150);
+}
+
+.thumb {
+  
+}

@@ -29,7 +29,6 @@ class VideoEdit extends React.Component {
   }
 
   goHome() {
-    debugger
     this.props.history.push('/');
   }
 
@@ -94,7 +93,7 @@ class VideoEdit extends React.Component {
 
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
-        <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" spin />
+        <FontAwesomeIcon className="new-video-spinner" icon="spinner" size="2x" color="white" pulse />
         &nbsp;
         <h3>Upload status: Processing your changes...</h3>
       </div>

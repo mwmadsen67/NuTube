@@ -13,7 +13,7 @@
 
 .index-space-container {
   display: flex;
-  background: rgb(21, 21, 21);
+  background: rgb(18, 18, 18);
   width: 100%;
   min-height: 100%;
   height: auto;
@@ -47,25 +47,16 @@ span {
 }
 
 .show-video-page {
-  background: rgb(21, 21, 21);
-}
-
-.show-video-area > h1 {
-  color: white;
-  font-size: 14pt;
-}
-
-.show-video-user-info > h3 {
-  color: white;
-}
-
-.show-video {
-  display: flex;
+  background: rgb(18, 18, 18);
 }
 
 .show-top-spacer {
   width: 100px;
   height: 70px;
+}
+
+.show-video {
+  display: flex;
 }
 
 .show-left-spacer {
@@ -78,7 +69,36 @@ span {
   flex-direction: column;
   width: 60%;
   height: auto;
+  margin-left: 20px;
 }
+
+.show-video-area > h1 {
+  color: white;
+  font-size: 14pt;
+}
+
+.show-video-user-info2 > h3 {
+  color: white;
+  font-size: 11pt;
+}
+
+.show-video-user-info2 > h4 {
+  color: rgb(100, 100, 100);
+  font-size: 11pt;
+}
+
+.show-video-user-container > h3 {
+  color: white;
+  font-size: 11pt;
+  margin-left: 61px;
+}
+
+.show-video-user-container {
+  padding: 17px 0px 26px 0px;
+  border-top: 1px solid rgb(50, 50, 50);
+  border-bottom: 1px solid rgb(50, 50, 50);
+}
+
 .show-video-user {
   display: flex;
   align-items: center;
@@ -177,7 +197,7 @@ span {
   bottom: 0;
   right: 0;
   margin: 4px;
-  background: rgb(20, 20, 20);
+  background: rgb(18, 18, 18);
   opacity: 0.85;
   padding: 1px 3px 1px 3px;
   border-radius: 2px;
@@ -384,7 +404,7 @@ span {
   border: 1px solid;
   border-color: rgb(50, 50, 50);
   color: #dadce0;
-  background: rgb(20, 20, 20);
+  background: rgb(18, 18, 18);
   font-family: 'Roboto', sans-serif;
   padding: 5px 10px 5px;  
   width: 100%;
@@ -400,7 +420,7 @@ span {
   border: 1px solid;
   border-color: rgb(50, 50, 50);
   color: #dadce0;
-  background: rgb(20, 20, 20);
+  background: rgb(18, 18, 18);
   font-family: 'Roboto', sans-serif;
   padding: 5px 10px 5px;
   width: 100%;

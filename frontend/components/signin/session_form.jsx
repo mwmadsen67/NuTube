@@ -47,9 +47,9 @@ class SessionForm extends React.Component {
 
   demoLogin(){
     return () => this.setState({
-      username: "sergeybrin",
-      email: "sergeybrin@nutube.com",
-      password: "demologin"
+      username: "Demo User",
+      email: "demo_user@nutube.com",
+      password: "youtubesucks"
     });
   }
 
@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
               <div className="signin-float-label">
                 <label>
                   <input className="signin-input" 
-                    type="text" 
+                    type="email" 
                     placeholder="Email" 
                     value={this.state.email} 
                     autoFocus 

@@ -1,12 +1,72 @@
 import React from 'react';
 import Header from '../header';
 import { withRouter } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class VideoShow extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      currLike: this.props.likes.id,
+      currDislike: this.props.dislikes.id,
+      numLikes: this.props.video.numLikes,
+      numDislikes: this.props.video.numDislikes
+    };
 
     this.videoEdit = this.videoEdit.bind(this);
+    this.handleLike = this.handleLike.bind(this);
+    this.handleDislike = this.handleDislike.bind(this);
+  }
+
+  handleLike(){  
+
+    if (this.state.currLike) {
+      this.props.deleteLike(this.props.video.id, this.state.currLike);
+      this.setState({ 
+        currLike: null, 
+        numLikes: (this.state.numLikes - 1) 
+      });
+    } else if (this.state.currDislike) {
+      this.props.deleteDislike(this.props.video.id, this.state.currDislike);
+      this.props.createLike(this.props.video.id);
+      this.setState({ 
+        currDislike: null, 
+        currLike: this.props.currentUser.id,
+        numDislikes: (this.state.numDislikes - 1),
+        numLikes: (this.state.numLikes + 1)
+      });
+    } else {
+      this.props.createLike(this.props.video.id);
+      this.setState({ 
+        currLike: this.props.currentUser.id,
+        numLikes: (this.state.numLikes + 1)
+      });
+    }
+  }
+
+  handleDislike(){
+    if (this.state.currDislike) {
+      this.props.deleteDislike(this.props.video.id, this.state.currDislike);
+      this.setState({
+        currDislike: null,
+        numDislikes: (this.state.numDislikes - 1)
+      });
+    } else if (this.state.currLike) {
+      this.props.deleteLike(this.props.video.id, this.state.currLike);
+      this.props.createDislike(this.props.video.id);
+      this.setState({
+        currLike: null,
+        currDislike: this.props.currentUser.id,
+        numLikes: (this.state.numLikes - 1),
+        numDislikes: (this.state.numDislikes +1)
+      });
+    } else {
+      this.props.createDislike(this.props.video.id);
+      this.setState({
+        currDislike: this.props.currentUser.id,
+        numDislikes: (this.state.numDislikes + 1)
+      });
+    }
   }
 
   videoEdit(){
@@ -24,7 +84,7 @@ class VideoShow extends React.Component {
       return null;
     }
     
-    const editBtn = (this.props.currentUser.id === video.userId) ? (
+    const editBtn = ((this.props.currentUser) && (this.props.currentUser.id === video.userId)) ? (
       <button className="show-video-edit" onClick={this.videoEdit}>Edit Video</button>
     ) : (
       <div></div>
@@ -44,16 +104,35 @@ class VideoShow extends React.Component {
                 &nbsp;
                 <h1>{video.title}</h1>
                 &nbsp;
-                <div className="show-video-user">
-                  <div className="show-video-user-info">
-                    <button className="show-video-user-btn">
-                      {video.username[0].toUpperCase()}
-                    </button>
-                    <div className="show-video-user-spacer"></div>
-                    <h3>{video.username}</h3>
-                    <h3>{video.description}</h3>
+                <div className="likes">
+                  <div className="temp-plays"></div>
+                  <button className="like-btn" onClick={this.handleLike}>
+                    <FontAwesomeIcon className="thumb" icon="thumbs-up" size="lg" color="rgb(150, 150, 150)" />
+                    <h3>{this.props.video.numLikes}</h3>
+                  </button>
+                  &nbsp;
+                  <button className="like-btn" onClick={this.handleDislike}>
+                    <FontAwesomeIcon className="thumb" icon="thumbs-down" size="lg" color="rgb(150, 150, 150)" />
+                    <h3>{this.props.video.numDislikes}</h3>
+                  </button>
+                </div>
+                &nbsp;
+                <div className="show-video-user-container">
+                  <div className="show-video-user">
+                    <div className="show-video-user-info">
+                      <button className="show-video-user-btn">
+                        {video.username[0].toUpperCase()}
+                      </button>
+                      <div className="show-video-user-spacer"></div>
+                      <div className="show-video-user-info2">
+                        <h3>{video.username}</h3>
+                        <h4>{video.createdAt}</h4>
+                      </div>
+                    </div>
+                    {editBtn}
                   </div>
-                  {editBtn}
+                  &nbsp;
+                  <h3>{video.description}</h3>
                 </div>
               </div>
           </div>

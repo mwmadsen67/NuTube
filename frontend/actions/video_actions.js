@@ -12,10 +12,10 @@ const receiveVideos = videos => {
   });
 };
 
-const receiveVideo = video => {
+const receiveVideo = payload => {
   return({
     type: RECEIVE_VIDEO,
-    video: video
+    payload
   });
 };
 
