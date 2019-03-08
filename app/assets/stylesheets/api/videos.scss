@@ -13,6 +13,8 @@
 
 .index-space-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   background: rgb(18, 18, 18);
   width: 100%;
   min-height: 100%;
@@ -39,7 +41,11 @@
 .video-index-item {
   display:  flex;
   justify-content: space-between;
+  flex-direction: column;
+  width: 210px;
   height: 170px;
+  margin: 2px;
+  cursor: pointer;
 }
 
 span {
@@ -168,12 +174,6 @@ span {
   overflow: hidden;
 }
 
-.video-index-item {
-  display: flex;
-  flex-direction: column;
-  margin: 2px;
-  cursor: pointer;
-}
 
 .video-image-container {
   display: inline-flex;

@@ -108,12 +108,12 @@ class VideoShow extends React.Component {
                   <div className="temp-plays"></div>
                   <button className="like-btn" onClick={this.handleLike}>
                     <FontAwesomeIcon className="thumb" icon="thumbs-up" size="lg" color="rgb(150, 150, 150)" />
-                    <h3>{this.props.video.numLikes}</h3>
+                    <h3>{this.state.numLikes}</h3>
                   </button>
                   &nbsp;
                   <button className="like-btn" onClick={this.handleDislike}>
                     <FontAwesomeIcon className="thumb" icon="thumbs-down" size="lg" color="rgb(150, 150, 150)" />
-                    <h3>{this.props.video.numDislikes}</h3>
+                    <h3>{this.state.numDislikes}</h3>
                   </button>
                 </div>
                 &nbsp;

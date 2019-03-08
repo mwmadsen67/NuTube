@@ -7,6 +7,11 @@
 # #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
+User.destroy_all
+Video.destroy_all
+Like.destroy_all
+Dislike.destroy_all
+
 demo = User.create({username: "Demo User", email: "demo_user@nutube.com", password: "youtubesucks"})
 mike = User.create({username: "Mike Madsen", email: "mike@nutube.com", password: "mikemike"})
 aram = User.create({username: "Aram", email: "aram@nutube.com", password: "123456"})
@@ -22,28 +27,6 @@ nhl = User.create({username: "NHL", email: "nhl@nutube.com", password: "123456"}
 babish = User.create({username: "Binging with Babish", email: "babish@nutube.com", password: "123456"})
 jre = User.create({username: "JRE Clips", email: "jre@nutube.com", password: "123456"})
 keypeele = User.create({username: "Comedy Central", email: "comedycentral@nutube.com", password: "123456"})
-
-like1 = Like.create({user_id: 1, video_id: 2})
-like2 = Like.create({user_id: 2, video_id: 2})
-like3 = Like.create({user_id: 3, video_id: 2})
-like4 = Like.create({user_id: 4, video_id: 2})
-like5 = Like.create({user_id: 5, video_id: 2})
-like6 = Like.create({user_id: 6, video_id: 2})
-
-dislike1 = Dislike.create({user_id: 1, video_id: 3})
-dislike2 = Dislike.create({user_id: 2, video_id: 3})
-dislike3 = Dislike.create({user_id: 3, video_id: 3})
-dislike4 = Dislike.create({user_id: 4, video_id: 3})
-dislike5 = Dislike.create({user_id: 5, video_id: 3})
-dislike6 = Dislike.create({user_id: 6, video_id: 3})
-
-like7 = Like.create({user_id: 1, video_id: 1})
-like8 = Like.create({user_id: 2, video_id: 1})
-like9 = Like.create({user_id: 3, video_id: 1})
-like10 = Like.create({user_id: 4, video_id: 1})
-dislike8 = Dislike.create({user_id: 5, video_id: 1})
-dislike9 = Dislike.create({user_id: 6, video_id: 1})
-
 
 vid1 = Video.create({title: "4K Icicles", description: "This is a test video showing icicles dripping some water", length: 16, user_id: 2})
 video1 = open("https://s3-us-west-1.amazonaws.com/nutube-dev/Pexels+Videos+1899099.mp4")
@@ -70,8 +53,8 @@ imgkeypeele = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGkeypeele.pn
 vidkeypeele.image.attach(io: imgkeypeele, filename: 'keypeele')
 
 vidalexjones = Video.create({title: "HUMAN ANIMAL HYBRIDS!!! Joe Rogan and Alex Jones", description: "Alex Jones loses his shit and warns us about the interdimensional globalists", length: 420, user_id: 14})
-vidalexjones = open("https://s3-us-west-1.amazonaws.com/nutube-dev/HUMAN+ANIMAL+HYBRIDS!!!+Joe+Rogan+%26+Alex+Jones.mp4")
-vidalexjones.video_attach.attach(io: vidalexjones, filename: 'jre')
+videoalexjones = open("https://s3-us-west-1.amazonaws.com/nutube-dev/HUMAN+ANIMAL+HYBRIDS!!!+Joe+Rogan+%26+Alex+Jones.mp4")
+vidalexjones.video_attach.attach(io: videoalexjones, filename: 'jre')
 imgalexjones = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGhumananimal.png")
 vidalexjones.image.attach(io: imgalexjones, filename: 'alexjones')
 
@@ -84,11 +67,32 @@ vidpizza.image.attach(io: imgpizzaball, filename: 'pizzaball')
 vidNhl = Video.create({title: "NHL Highlights Canadiens vs. Sharks - Mar 7, 2019", description: "The sharks won", length: 330, user_id: 12})
 videoNhl = open("https://s3-us-west-1.amazonaws.com/nutube-dev/NHL+Highlights+Canadiens+vs.+Sharks+%E2%80%93+Mar+7%2C+2019.mp4")
 vidNhl.video_attach.attach(io: videoNhl, filename: 'nhlhighlights')
-vidNhl = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGnhlhighlights.png")
-vidNhl.image.attach(io: vidNhl, filename: 'nhlimg')
+imgNhl = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGnhlhighlights.png")
+vidNhl.image.attach(io: imgNhl, filename: 'nhlimg')
 
 vidGot = Video.create({title: "Game of Thrones | Season 8 | Official Trailer (HBO)", description: "The trailer is here. #GameofThrones", length: 123, user_id: 11})
 videoGot = open("https://s3-us-west-1.amazonaws.com/nutube-dev/Game+of+Thrones+Season+8+Official+Trailer+(HBO).mp4")
 vidGot.video_attach.attach(io: videoGot, filename: 'got8')
 imgGot = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGGOT.png")
 vidGot.image.attach(io: imgGot, filename: 'got8img')
+
+like1 = Like.create({user_id: 1, video_id: 2})
+like2 = Like.create({user_id: 2, video_id: 2})
+like3 = Like.create({user_id: 3, video_id: 2})
+like4 = Like.create({user_id: 4, video_id: 2})
+like5 = Like.create({user_id: 5, video_id: 2})
+like6 = Like.create({user_id: 6, video_id: 2})
+
+dislike1 = Dislike.create({user_id: 1, video_id: 3})
+dislike2 = Dislike.create({user_id: 2, video_id: 3})
+dislike3 = Dislike.create({user_id: 3, video_id: 3})
+dislike4 = Dislike.create({user_id: 4, video_id: 3})
+dislike5 = Dislike.create({user_id: 5, video_id: 3})
+dislike6 = Dislike.create({user_id: 6, video_id: 3})
+
+like7 = Like.create({user_id: 1, video_id: 1})
+like8 = Like.create({user_id: 2, video_id: 1})
+like9 = Like.create({user_id: 3, video_id: 1})
+like10 = Like.create({user_id: 4, video_id: 1})
+dislike8 = Dislike.create({user_id: 5, video_id: 1})
+dislike9 = Dislike.create({user_id: 6, video_id: 1})
