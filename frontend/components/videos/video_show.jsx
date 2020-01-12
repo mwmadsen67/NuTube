@@ -7,10 +7,10 @@ class VideoShow extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      currLike: this.props.likes.id,
-      currDislike: this.props.dislikes.id,
-      numLikes: this.props.video.numLikes,
-      numDislikes: this.props.video.numDislikes
+      currLike: props.likes.id,
+      currDislike: props.dislikes.id,
+      numLikes: 0,
+      numDislikes: 0
     };
 
     this.videoEdit = this.videoEdit.bind(this);
@@ -19,28 +19,29 @@ class VideoShow extends React.Component {
   }
 
   handleLike(){  
-
     if (this.state.currLike) {
       this.props.deleteLike(this.props.video.id, this.state.currLike);
       this.setState({ 
-        currLike: null, 
+        currLike: false, 
         numLikes: (this.state.numLikes - 1) 
       });
     } else if (this.state.currDislike) {
       this.props.deleteDislike(this.props.video.id, this.state.currDislike);
-      this.props.createLike(this.props.video.id);
-      this.setState({ 
-        currDislike: null, 
-        currLike: this.props.currentUser.id,
-        numDislikes: (this.state.numDislikes - 1),
-        numLikes: (this.state.numLikes + 1)
-      });
+      this.props.createLike(this.props.video.id)
+        .then(res => {
+          this.setState({ 
+            currDislike: false, 
+            currLike: res.like.id,
+            numDislikes: (this.state.numDislikes - 1),
+            numLikes: (this.state.numLikes + 1)
+          })});
     } else {
-      this.props.createLike(this.props.video.id);
-      this.setState({ 
-        currLike: this.props.currentUser.id,
-        numLikes: (this.state.numLikes + 1)
-      });
+      this.props.createLike(this.props.video.id)
+        .then(res => this.setState({
+          currDislike: false,
+          currLike: res.like.id,
+          numLikes: (this.state.numLikes + 1)
+        }));
     }
   }
 
@@ -48,24 +49,25 @@ class VideoShow extends React.Component {
     if (this.state.currDislike) {
       this.props.deleteDislike(this.props.video.id, this.state.currDislike);
       this.setState({
-        currDislike: null,
+        currDislike: false,
         numDislikes: (this.state.numDislikes - 1)
       });
     } else if (this.state.currLike) {
       this.props.deleteLike(this.props.video.id, this.state.currLike);
-      this.props.createDislike(this.props.video.id);
-      this.setState({
-        currLike: null,
-        currDislike: this.props.currentUser.id,
-        numLikes: (this.state.numLikes - 1),
-        numDislikes: (this.state.numDislikes +1)
-      });
+      this.props.createDislike(this.props.video.id)
+        .then(res => this.setState({
+          currDislike: res.dislike.id,
+          currLike: false,
+          numDislikes: (this.state.numDislikes + 1),
+          numLikes: (this.state.numLikes - 1)
+        }));
     } else {
-      this.props.createDislike(this.props.video.id);
-      this.setState({
-        currDislike: this.props.currentUser.id,
-        numDislikes: (this.state.numDislikes + 1)
-      });
+      this.props.createDislike(this.props.video.id)
+        .then(res => this.setState({
+          currDislike: res.dislike.id,
+          currLike: false,
+          numDislikes: (this.state.numDislikes + 1)
+        }));
     }
   }
 
@@ -74,11 +76,17 @@ class VideoShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestVideo(this.props.videoId);
+    this.props.requestVideo(this.props.videoId)
+      .then(res => this.setState({
+        currLike: res.payload.likes.id,
+        currDislike: res.payload.dislikes.id,
+        numLikes: res.payload.video.numLikes,
+        numDislikes: res.payload.video.numDislikes
+      }));
   }
   
   render (){
-
+    
     const video = this.props.video;
     if (video === undefined) {
       return null;

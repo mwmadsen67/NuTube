@@ -5,7 +5,9 @@ class Api::DislikesController < ApplicationController
     dislike = Dislike.new(dislike_params)
     dislike.user_id = current_user.id
     dislike.video_id = params[:video_id]
-    if dislike.save == false
+    if dislike.save
+      render json: dislike
+    else
       render json: dislike, status: :unprocessable_entity
     end
   end

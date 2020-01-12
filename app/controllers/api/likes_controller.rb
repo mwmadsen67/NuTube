@@ -5,7 +5,9 @@ class Api::LikesController < ApplicationController
     like = Like.new(like_params)
     like.user_id = current_user.id
     like.video_id = params[:video_id]
-    if like.save == false
+    if like.save
+      render json: like
+    else
       render json: like, status: :unprocessable_entity
     end
   end
