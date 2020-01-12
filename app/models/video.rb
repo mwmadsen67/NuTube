@@ -1,5 +1,5 @@
 class Video < ApplicationRecord
-  validates :title, :length, :user_id, presence: true
+  validates :title, :length, presence: true
   validates :title, length: { maximum: 100 }
   validates :description, length: { maximum: 5000, allow_nil: true }
   validates :length, length: { maximum: 500 }
@@ -12,6 +12,7 @@ class Video < ApplicationRecord
 
   has_many :likes
   has_many :dislikes
+  has_many :comments
 
   def duration(seconds)
     sec_remainder = seconds % 60

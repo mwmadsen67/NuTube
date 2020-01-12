@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :videos
   has_many :likes
   has_many :dislikes
+  has_many :comments
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

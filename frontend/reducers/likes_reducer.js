@@ -6,7 +6,7 @@ export const likesReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_LIKE:
       if (action.like) {
-        return action.like;
+        return Object.assign({}, state, { [action.like.id]: action.like });
       } else {
         return state;
       }
@@ -28,7 +28,7 @@ export const dislikesReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_DISLIKE:
       if (action.dislike) {
-        return action.dislike;
+        return Object.assign({}, state, { [action.dislike.id]: action.dislike });
       } else {
         return state;
       }

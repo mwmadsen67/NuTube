@@ -20,6 +20,6 @@ class Api::DislikesController < ApplicationController
   end
 
   def dislike_params
-    params.permit(:user_id, :video_id)
+    params.require(:dislike).permit(:user_id, :video_id)
   end
 end

@@ -2,7 +2,11 @@ export const createLike = (videoId) => (
   $.ajax({
     method: 'POST',
     url: `api/videos/${videoId}/likes`,
-    data: videoId
+    data: {
+      like: {
+        video_id: videoId
+      }
+    }
   })
 );
 
@@ -17,7 +21,11 @@ export const createDislike = (videoId) => (
   $.ajax({
     method: 'POST',
     url: `api/videos/${videoId}/dislikes`,
-    data: videoId
+    data: {
+      dislike: {
+        video_id: videoId
+      }
+    }
   })
 );
 
