@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../header';
 import { withRouter } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CommentsContainer from '../comments/comments_container';
 
 class VideoShow extends React.Component {
   constructor(props){
@@ -142,6 +143,7 @@ class VideoShow extends React.Component {
                   &nbsp;
                   <h3>{video.description}</h3>
                 </div>
+                <CommentsContainer />
               </div>
           </div>
         </div>

@@ -5,7 +5,6 @@ class VideoIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.videoDuration = this.videoDuration.bind(this);
   }
 
   handleClick(){

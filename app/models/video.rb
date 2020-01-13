@@ -40,6 +40,13 @@ class Video < ApplicationRecord
       .count
   end
 
+  def num_comments
+    Comment
+      .joins(:video)
+      .where(video_id: self.id)
+      .count
+  end
+
   def vid_likes(user)
     # .select(:user_id)
     Like

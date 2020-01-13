@@ -1,5 +1,10 @@
 class Api::CommentsController < ApplicationController
   before_action :require_login
+
+  def index
+    # @comments = Comment.where(video_id: params[:video_id])
+    # render 'api/comments/index'
+  end
   
   def create
     comment = Comment.new(comment_params)

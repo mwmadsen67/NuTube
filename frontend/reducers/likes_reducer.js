@@ -17,7 +17,9 @@ export const likesReducer = (state = {}, action) => {
         return state;
       };
     case REMOVE_LIKE:
-      return state;
+      let newState = Object.assign({}, state);
+      delete newState[action.likeId];
+      return newState;
     default:
       return state;
   }
@@ -39,7 +41,9 @@ export const dislikesReducer = (state = {}, action) => {
         return state;
       };
     case REMOVE_DISLIKE:
-      return state;
+      let newState = Object.assign({}, state);
+      delete newState[action.dislikeId];
+      return newState;
     default:
       return state;
   }
