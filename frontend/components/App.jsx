@@ -23,6 +23,7 @@ const App = () => (
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
       <ProtectedRoute exact path='/new' component={VideoNewContainer} />
       <ProtectedRoute path='/:videoId/edit' component={VideoEditContainer} />
+      <Route path='/profile/:userId' component={ProfileContainer} />
       <Route path='/:videoId' component={VideoShowContainer} />
       <Route exact path='/' component={VideoIndexContainer} />
       {/* <Route render={() => <Redirect to={{pathname: '/'}} />} /> */}

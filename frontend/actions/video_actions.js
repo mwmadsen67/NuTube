@@ -34,6 +34,10 @@ const receiveVideoErrors = errors => {
   });
 };
 
+export const clearVideoErrors = () => ({
+  type: CLEAR_VIDEO_ERRORS
+})
+
 export const requestVideos = () => dispatch => (
   VideoApiUtil.fetchVideos().then( videos => dispatch(receiveVideos(videos)),
   err => dispatch(receiveVideoErrors(err.responseJSON)))
