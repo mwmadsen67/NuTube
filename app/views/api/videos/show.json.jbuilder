@@ -1,6 +1,7 @@
-
-like = @video.vid_likes(current_user)
-dislike = @video.vid_dislikes(current_user)
+if logged_in?
+  like = @video.vid_likes(current_user)
+  dislike = @video.vid_dislikes(current_user)
+end
 comments = @video.comments
 
 if like 
@@ -30,7 +31,8 @@ end
 json.comments do
   comments.each do |comment|
     json.set! comment.id do
-      json.extract! comment, :id, :body, :user_id, :video_id, :created_at
+      json.extract! comment, :id, :body, :user_id, :video_id
+      json.createdAt time_ago_in_words(comment.created_at)
       json.username comment.user.username
     end
   end

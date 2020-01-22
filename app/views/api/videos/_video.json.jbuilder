@@ -1,4 +1,5 @@
-json.extract! video, :id, :title, :description, :length, :user_id, :created_at
+json.extract! video, :id, :title, :description, :length, :user_id
+json.createdAt video.created_at.strftime("%b %e, %Y")
 json.videoUrl url_for(video.video_attach)
 json.imageUrl url_for(video.image)
 json.username video.user.username

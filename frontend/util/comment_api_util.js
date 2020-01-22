@@ -9,7 +9,9 @@ export const createComment = (comment) => (
   $.ajax({
     method: 'POST',
     url: `api/videos/${comment.video_id}/comments`,
-    data: comment
+    data: comment,
+    contentType: false,
+    processData: false
   })
 );
 

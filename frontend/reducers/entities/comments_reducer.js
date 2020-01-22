@@ -1,5 +1,5 @@
-import { RECEIVE_COMMENT, REMOVE_COMMENT } from '../actions/comment_actions';
-import { RECEIVE_VIDEO } from '../actions/video_actions';
+import { RECEIVE_COMMENT, REMOVE_COMMENT } from '../../actions/comment_actions';
+import { RECEIVE_VIDEO } from '../../actions/video_actions';
 
 const commentsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,7 +7,11 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_COMMENT:
       return Object.assign({}, state, { [action.comment.id]: action.comment });
     case RECEIVE_VIDEO:
-      return action.payload.comments;
+      if (action.payload.comments) {
+        return action.payload.comments;
+      } else {
+        return state;
+      }
     case REMOVE_COMMENT:
       let newState = Object.assign({}, state);
       delete newState[action.commentId];

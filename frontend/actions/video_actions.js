@@ -4,6 +4,7 @@ export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";
 export const RECEIVE_VIDEO_ERRORS = "RECEIVE_VIDEO_ERRORS";
+export const CLEAR_VIDEO_ERRORS = "CLEAR_VIDEO_ERRORS";
 
 const receiveVideos = videos => {
   return({

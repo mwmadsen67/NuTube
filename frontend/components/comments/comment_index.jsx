@@ -4,19 +4,45 @@ import CommentIndexItem from './comment_index_item';
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      body: ''
+    }
+    this.updateBody = this.updateBody.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
 
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('comment[body]', this.state.body);
+    formData.append('comment[user_id]', this.props.currentUser.id);
+    formData.append('comment[video_id]', this.props.videoId);
 
+    this.props.createComment(formData)
+      .then(res => this.setState({
+        commentArray: this.state.commentArray.push(res)
+      }))
+      .then(this.handleCancel)
   }
 
-  updateBody() {
+  handleCancel() {
+    this.setState({
+      body: ''
+    })
+  }
 
+  updateBody(e) {
+    // debugger
+    this.setState({
+      body: e.target.value
+    })
   }
 
   render() {
-    let comments = this.props.comments;
+    let currentUser = this.props.currentUser;
+    let comments = this.props.commentsArray;
     if (!comments) return null;
 
     const form = currentUser ?  (
@@ -39,7 +65,7 @@ class CommentIndex extends React.Component {
             <div className="comment-underline">
               <div className="comment-emptybox"></div>
               <div className="comment-button-container">
-                <button className="comment-cancel" onClick={handleCancel}>CANCEL</button>
+                <button className="comment-cancel" onClick={this.handleCancel}>CANCEL</button>
                 <input className="comment-submit" type="submit" value="COMMENT" />
               </div>
             </div>
@@ -50,9 +76,11 @@ class CommentIndex extends React.Component {
     return(
       <div>
         {form}
-        {comments.map(comment => (
-          <CommentIndexItem comment={comment} key={comment.id}/>
-        ))}
+        {comments.map(comment => {
+          if (comment.videoId === this.props.videoId){
+            return <CommentIndexItem comment={comment} key={comment.id}/>
+          };
+        })}
       </div>
     )
   }

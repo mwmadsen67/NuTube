@@ -3,10 +3,12 @@ import { createComment, deleteComment } from '../../actions/comment_actions';
 import  { commentsArray } from '../../reducers/selectors';
 import CommentIndex from './comment_index';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.entities.users[state.session.id],
-    comments: commentsArray(state.entities.comments)
+    commentsArray: commentsArray(ownProps.comments),
+    comments: ownProps.comments,
+    videoId: ownProps.videoId
   });
 };
 

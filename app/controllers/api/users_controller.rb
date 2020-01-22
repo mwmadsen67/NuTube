@@ -10,10 +10,19 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      render 'api/users/show'
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :image)
   end
 
 end

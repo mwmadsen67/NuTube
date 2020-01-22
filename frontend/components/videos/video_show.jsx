@@ -11,7 +11,8 @@ class VideoShow extends React.Component {
       currLike: props.likes.id,
       currDislike: props.dislikes.id,
       numLikes: 0,
-      numDislikes: 0
+      numDislikes: 0,
+      comments: {}
     };
 
     this.videoEdit = this.videoEdit.bind(this);
@@ -82,7 +83,8 @@ class VideoShow extends React.Component {
         currLike: res.payload.likes.id,
         currDislike: res.payload.dislikes.id,
         numLikes: res.payload.video.numLikes,
-        numDislikes: res.payload.video.numDislikes
+        numDislikes: res.payload.video.numDislikes,
+        comments: res.payload.comments
       }));
   }
   
@@ -143,7 +145,7 @@ class VideoShow extends React.Component {
                   &nbsp;
                   <h3>{video.description}</h3>
                 </div>
-                <CommentsContainer />
+                <CommentsContainer videoId={video.id} comments={this.state.comments}/>
               </div>
           </div>
         </div>

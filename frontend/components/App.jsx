@@ -25,7 +25,8 @@ const App = () => (
       <ProtectedRoute path='/:videoId/edit' component={VideoEditContainer} />
       <Route path='/:videoId' component={VideoShowContainer} />
       <Route exact path='/' component={VideoIndexContainer} />
-      <Route render={() => <Redirect to={{pathname: '/'}} />} />
+      {/* <Route render={() => <Redirect to={{pathname: '/'}} />} /> */}
+      <Redirect to='/' />
     </Switch>
   </div>
 );
