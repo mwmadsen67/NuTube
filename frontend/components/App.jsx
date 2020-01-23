@@ -13,6 +13,8 @@ import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import VideoNewContainer from './videos/video_new_container';
 import VideoEditContainer from './videos/video_edit_container';
+import ProfileContainer from './profile/profile_container';
+import ProfileEditContainer from './profile/profile_edit_container';
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/pro_route_util';
 
@@ -23,6 +25,7 @@ const App = () => (
       <AuthRoute exact path='/signup' component={SignupFormContainer} />
       <ProtectedRoute exact path='/new' component={VideoNewContainer} />
       <ProtectedRoute path='/:videoId/edit' component={VideoEditContainer} />
+      <ProtectedRoute path="/profile/:userId/edit" component={ProfileEditContainer} />
       <Route path='/profile/:userId' component={ProfileContainer} />
       <Route path='/:videoId' component={VideoShowContainer} />
       <Route exact path='/' component={VideoIndexContainer} />

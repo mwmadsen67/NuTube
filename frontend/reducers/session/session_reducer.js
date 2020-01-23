@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, SIGNOUT_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, SIGNOUT_CURRENT_USER } from '../../actions/session_actions';
 
 const _nullSession = {
   id: null

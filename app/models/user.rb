@@ -1,7 +1,10 @@
 class User < ApplicationRecord
+  require 'open-uri'
+
   validates :email, presence: true, uniqueness: true
   validates :session_token, :username, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validate :ensure_image, :ensure_banner
 
   after_initialize :ensure_session_token
   attr_reader :password
@@ -13,6 +16,18 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_one_attached :banner
+
+  def ensure_image
+    if !self.image.attached?
+      self.image.attach(io: open("https://s3-us-west-1.amazonaws.com/nutube-dev/test_img.png"), filename: 'default_image')
+    end
+  end
+
+  def ensure_banner
+    if !self.banner.attached?
+      self.banner.attach(io: open("https://s3-us-west-1.amazonaws.com/nutube-dev/matrix-code.jpg"), filename: 'default_banner')
+    end
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

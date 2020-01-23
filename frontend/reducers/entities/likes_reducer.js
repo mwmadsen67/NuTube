@@ -1,5 +1,5 @@
-import { RECEIVE_LIKE, RECEIVE_DISLIKE, REMOVE_LIKE, REMOVE_DISLIKE } from '../actions/like_actions';
-import { RECEIVE_VIDEO } from '../actions/video_actions';
+import { RECEIVE_LIKE, RECEIVE_DISLIKE, REMOVE_LIKE, REMOVE_DISLIKE } from '../../actions/like_actions';
+import { RECEIVE_VIDEO } from '../../actions/video_actions';
 
 export const likesReducer = (state = {}, action) => {
   Object.freeze(state);

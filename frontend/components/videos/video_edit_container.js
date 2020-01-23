@@ -7,7 +7,7 @@ const mapStateToProps = (state, { match }) => {
   return {
     videoId: videoId,
     video: state.entities.videos[videoId],
-    errors: state.errors.session
+    errors: state.errors.videos
   }
 };
 
