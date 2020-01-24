@@ -18,13 +18,13 @@ export const clearUserErrors = () => ({
   type: CLEAR_USER_ERRORS
 })
 
-export const fetchUser = id = dispatch => {
+export const fetchUser = id => dispatch => {
   return UserApiUtil.fetchUser(id)
     .then(user => dispatch(receiveUser(user)),
     err => dispatch(receiveErrors(err)));
 };
 
-export const updateUser = user = dispatch => {
+export const updateUser = user => dispatch => {
   return UserApiUtil.updateUser(user)
     .then(user => dispatch(receiveUser(user)),
     err => dispatch(receiveErrors(err)));
