@@ -2,6 +2,7 @@ class Api::VideosController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def create
+    debugger
     @video = Video.new(video_params)
     @video.video_attach.attach(params[:video][:video_attach])
     @video.image.attach(params[:video][:image])

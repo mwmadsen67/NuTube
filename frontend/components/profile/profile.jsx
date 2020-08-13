@@ -14,15 +14,17 @@ class Profile extends React.Component {
   render() {
     let user = this.props.user;
     if(!user) return null;
+    console.dir(user)
 
     return(
       <div>
         <Header/>
         <div>
-          {user.banner}
+          <img src={user.banner} />
         </div>
         <div>
-          {user.image}
+          <img src={user.image} />
+
         </div>
         <div>
           {user.username}
