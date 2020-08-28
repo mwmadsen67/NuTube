@@ -25,17 +25,22 @@ class VideoIndexItem extends React.Component {
   render(){
     // debugger
     const video = this.props.video;
+    const klass1 = (this.props.vidType === "main" ? "video-index-item" : "video-side-item")
+    const klass2 = (this.props.vidType === "main" ? "video-image-container" : "video-side-image")
+    const klass3 = (this.props.vidType === "main" ? "video-image-crop" : "video-side-crop")
     if (video === null) {
       return null;
     }
     return (
-      <div className="video-index-item" onClick={this.handleClick}>
-        <div className="video-image-container">
-          <div className="video-image-crop"><img src={video.imageUrl} /></div>
+      <div className={klass1} onClick={this.handleClick}>
+        <div className={klass2}>
+          <div className={klass3}><img src={video.imageUrl} /></div>
           <span className="video-item-duration">{this.videoDuration(video.length)}</span>
         </div>
-        <span className="video-item-title">{video.title}</span>
-        <span className="video-item-username">{video.username}</span>
+        <div className="video-item-words">
+          <span className="video-item-title">{video.title}</span>
+          <span className="video-item-username">{video.username}</span>
+        </div>
       </div>
     );
   }

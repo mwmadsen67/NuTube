@@ -3,6 +3,7 @@ import Header from '../header';
 import { withRouter } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CommentsContainer from '../comments/comments_container';
+import VideoIndexContainer from '../videos/video_index_container';
 
 class VideoShow extends React.Component {
   constructor(props){
@@ -87,6 +88,19 @@ class VideoShow extends React.Component {
         comments: res.payload.comments
       }));
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.videoId !== this.props.videoId) {
+      this.props.requestVideo(this.props.videoId)
+        .then(res => this.setState({
+          currLike: res.payload.likes.id,
+          currDislike: res.payload.dislikes.id,
+          numLikes: res.payload.video.numLikes,
+          numDislikes: res.payload.video.numDislikes,
+          comments: res.payload.comments
+        }));
+    }
+  }
   
   render (){
     
@@ -94,7 +108,7 @@ class VideoShow extends React.Component {
     if (video === undefined) {
       return null;
     }
-    
+    // debugger
     const editBtn = ((this.props.currentUser) && (this.props.currentUser.id === video.userId)) ? (
       <button className="show-video-edit" onClick={this.videoEdit}>Edit Video</button>
     ) : (
@@ -109,7 +123,7 @@ class VideoShow extends React.Component {
           <div className='show-video'>
             <div className="show-left-spacer"></div>
               <div className="show-video-area">
-                <video width="100%" height="auto" controls>
+                <video key={video.videoUrl} width="100%" height="auto" controls>
                   <source src={video.videoUrl} type="video/mp4"></source>
                 </video>
                 &nbsp;
@@ -147,6 +161,7 @@ class VideoShow extends React.Component {
                 </div>
                 <CommentsContainer videoId={video.id} comments={this.state.comments}/>
               </div>
+            <VideoIndexContainer indexType="side" />
           </div>
         </div>
       </div>

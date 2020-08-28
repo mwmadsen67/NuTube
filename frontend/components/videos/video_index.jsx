@@ -16,15 +16,20 @@ class VideoIndex extends React.Component {
   renderMoreVideos(n) {
     if (this.props.videos.reverse()[n]) {
       return(
-        <div className="index-recommended">
+        <div>
+          <div className="index-recommended">
           {this.props.videos.reverse().slice(n, n + 5).map(video => (
             <VideoIndexItem
               video={video}
               key={video.id}
+              vidType="main"
             />
           ))}
+          </div>
+          &nbsp;
           {this.renderMoreVideos(n + 5)}
         </div>
+          
       )
     } else {
       return(
@@ -34,7 +39,19 @@ class VideoIndex extends React.Component {
   }
 
   render() {
-    // debugger
+    if (this.props.indexType === "side") {
+      return (
+        <div className="index-side">
+          {this.props.videos.reverse().slice(0,10).map(video => (
+            <VideoIndexItem
+              video={video}
+              key={video.id}
+              vidType="side"
+            />
+          ))}
+        </div>
+      )
+    }
     return(
     <div className="index-video-page">
       <Header />
@@ -48,6 +65,7 @@ class VideoIndex extends React.Component {
               <VideoIndexItem
                 video={video}
                 key={video.id}
+                vidType="main"
               />
             ))}
           </div>
