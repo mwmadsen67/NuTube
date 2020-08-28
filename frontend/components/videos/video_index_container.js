@@ -1,6 +1,6 @@
 import VideoIndex from './video_index';
 import { connect } from 'react-redux';
-import { requestVideos } from '../../actions/video_actions';
+import { requestVideos, searchVideos } from '../../actions/video_actions';
 import { videoArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestVideos: () => dispatch(requestVideos())
+  requestVideos: () => dispatch(requestVideos()),
+  searchVideos: query => dispatch(searchVideos(query))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoIndex);

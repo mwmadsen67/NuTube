@@ -17,6 +17,16 @@ class Api::VideosController < ApplicationController
     @videos = Video.all
   end
 
+  def search
+    if params[:query].present?
+      @videos = Video.where('LOWER(title) ~ ?', params[:query].downcase)
+    else
+      @videos = Video.none
+    end
+
+    render :index
+  end
+
   def show
     @video = Video.find(params[:id])
   end

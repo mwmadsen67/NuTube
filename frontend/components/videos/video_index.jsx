@@ -54,7 +54,7 @@ class VideoIndex extends React.Component {
     }
     return(
     <div className="index-video-page">
-      <Header />
+      <Header search={this.props.searchVideos} />
       <div className="index-top-spacer"></div>
       <div className="index-space-container">
         <div className="index-container">

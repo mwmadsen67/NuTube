@@ -6,8 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {query: ''};
     this.handleClick = this.handleClick.bind(this);
     this.videoClick = this.videoClick.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
   
   handleClick(){
@@ -16,6 +19,15 @@ class NavBar extends React.Component {
 
   videoClick(){
     this.props.history.push('/new');
+  }
+
+  update(e) {
+    this.setState({query: e.currentTarget.value})
+  }
+
+  handleSearch(e) {
+    e.preventDefault()
+    this.props.search(this.state.query)
   }
 
   render() {
@@ -32,12 +44,12 @@ class NavBar extends React.Component {
             </div>
             <div className="header-left-space"></div>            
           </div>
-          <div className="search-container">
-            <input className="search-bar" type="input" placeholder="Search" />
-            <button className="search-button">
+          <form className="search-container" onSubmit={this.handleSearch} >
+            <input className="search-bar" type="text" placeholder="Search" value={this.state.query} onChange={this.update} />
+            <button className="search-button" type="submit">
               <FontAwesomeIcon className="search-icon" icon="search" color="rgb(100, 100, 100)" />
             </button>
-          </div>
+          </form>
           <div className="right-header-container">
             <div className="header-upload" onClick={this.videoClick}>
               <FontAwesomeIcon icon="video" size="lg" color="white" />
