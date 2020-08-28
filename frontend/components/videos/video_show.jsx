@@ -159,7 +159,7 @@ class VideoShow extends React.Component {
                   &nbsp;
                   <h3>{video.description}</h3>
                 </div>
-                <CommentsContainer videoId={video.id} comments={this.state.comments}/>
+                <CommentsContainer videoId={video.id}/>
               </div>
             <VideoIndexContainer indexType="side" />
           </div>

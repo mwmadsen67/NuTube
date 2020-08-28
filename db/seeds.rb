@@ -78,7 +78,7 @@ vid_got.video_attach.attach(io: video_got, filename: 'got8')
 img_got = open("https://s3-us-west-1.amazonaws.com/nutube-dev/IMGGOT.png")
 vid_got.image.attach(io: img_got, filename: 'got8img')
 
-vidbrawl = Video.create!({title: "Philidelphia Flyers vs Ottawa Senators Brawl 2004 | NHL Classic HD", description: "One of the all time greatest hockey fights", length: 420, user_id: nhl.id })
+vidbrawl = Video.create!({title: "Philidelphia Flyers vs Ottawa Senators Brawl 2004 | NHL Classic HD", description: "One of the all time greatest hockey fights", length: 397, user_id: nhl.id })
 videobrawl = open("https://nutube-dev.s3-us-west-1.amazonaws.com/Philadelphia+Flyers+vs+Ottawa+Senators.+Brawl+2004.+NHL+Classic.HD.mp4")
 vidbrawl.video_attach.attach(io: videobrawl, filename: "sensflyersbrawl")
 imgbrawl = open("https://nutube-dev.s3-us-west-1.amazonaws.com/IMGsensflyers.png")

@@ -6,8 +6,8 @@ import CommentIndex from './comment_index';
 const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.entities.users[state.session.id],
-    commentsArray: commentsArray(ownProps.comments),
-    comments: ownProps.comments,
+    commentsArray: commentsArray(state.entities.comments),
+    comments: state.entities.comments,
     videoId: ownProps.videoId
   });
 };

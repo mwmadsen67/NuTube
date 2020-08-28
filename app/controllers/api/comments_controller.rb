@@ -7,12 +7,12 @@ class Api::CommentsController < ApplicationController
   end
   
   def create
-    comment = Comment.new(comment_params)
-    comment.user_id = current_user.id
-    if comment.save
-      render json: comment
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      render :show
     else
-      render json: comment, status: :unprocessable_entity
+      render json: @comment.errors.full_messages, status: 422
     end
   end
 
@@ -20,6 +20,9 @@ class Api::CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     if current_user.id == comment.user_id
       comment.destroy
+      render json: comment.id
+    else
+      render json: ["Could not destroy comment"], status: 401
     end
   end
 

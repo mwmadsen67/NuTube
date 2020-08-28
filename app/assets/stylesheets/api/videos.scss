@@ -104,12 +104,13 @@ span {
 
 .show-video-area > h1 {
   color: white;
-  font-size: 14pt;
+  font-size: 13pt;
 }
 
 .show-video-user-info2 > h3 {
   color: white;
   font-size: 11pt;
+  margin-bottom: 5px;
 }
 
 .show-video-user-info2 > h4 {
@@ -165,18 +166,19 @@ span {
   display: flex;
   justify-content: center;
   background: #1a73e8;
-  padding: 0 10px;
+  padding: 6px 10px;
   border-radius: 2px;
   height: 28px;
   width: 120px;
   font-size: 10pt;
   border: 0px solid;
-}
-
-.show-video-edit {
-  background: #0f54c2;
   cursor: pointer;
 }
+
+.show-video-edit:hover {
+  background: #0f54c2;
+}
+
 
 // video {
 //   width: 100%    !important;

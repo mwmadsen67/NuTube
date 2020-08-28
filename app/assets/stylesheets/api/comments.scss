@@ -1,3 +1,127 @@
 // Place all the styles related to the api/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-container {
+  margin-bottom: 50px;
+}
+
+.comment-new {
+  display: flex;
+  margin-top: 16px;
+}
+
+.comment-picture {
+  display: inline-block;
+  position: relative;
+  background: blueviolet;
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  border: 0px solid;
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  outline: none;
+}
+
+.comment-form {
+  width: 100%;
+  margin: 4px 0 0 12px;
+}
+
+.comment-form-body {
+  color: #dadce0;
+  background: #121212;
+  font-family: 'Roboto', sans-serif;
+  width: 99%;
+  border: 0;
+  border-bottom: 1px solid #323232;
+}
+
+.comment-form-body:active {
+  border-bottom: 1px solid black;
+}
+
+.comment-underline {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.comment-cancel {
+  color: #dadce0;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(18, 18, 18);
+  padding: 6px 10px;
+  border-radius: 2px;
+  height: 28px;
+  width: 120px;
+  font-size: 10pt;
+  border: 0px solid;
+  cursor: pointer;
+}
+
+.comment-submit {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  background: #1a73e8;
+  padding: 6px 10px;
+  border-radius: 2px;
+  height: 28px;
+  width: 120px;
+  font-size: 10pt;
+  border: 0px solid;
+  // background: #0f54c2;
+  cursor: pointer;
+}
+
+.comment-index-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.comment-info {
+  display: inline-flex;
+}
+
+.comment-item-text {
+  margin-left: 12px;
+}
+
+.comment-item-text div {
+  color: #dadce0;
+  font-size: 15px;
+}
+
+.comment-header {
+  display: flex;
+}
+
+.comment-item-username {
+  margin: 2px 5px 9px 0;
+}
+
+#comment-item-date {
+  color: #646464;
+  margin-top: 2px;
+}
+
+.comment-delete {
+  color: #dadce0;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(18, 18, 18);
+  padding: 6px 10px;
+  border-radius: 2px;
+  height: 28px;
+  width: 120px;
+  font-size: 10pt;
+  border: 0px solid;
+  cursor: pointer;
+}
+
+.comment-delete:hover {
+  background: red;
+}
