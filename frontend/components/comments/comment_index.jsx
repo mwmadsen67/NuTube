@@ -31,7 +31,6 @@ class CommentIndex extends React.Component {
   }
 
   updateBody(e) {
-    // debugger
     this.setState({
       body: e.target.value
     })

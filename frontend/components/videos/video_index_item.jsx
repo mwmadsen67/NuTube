@@ -23,7 +23,6 @@ class VideoIndexItem extends React.Component {
   }
 
   render(){
-    // debugger
     const video = this.props.video;
     const klass1 = (this.props.vidType === "main" ? "video-index-item" : "video-side-item")
     const klass2 = (this.props.vidType === "main" ? "video-image-container" : "video-side-image")

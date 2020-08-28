@@ -108,7 +108,6 @@ class VideoShow extends React.Component {
     if (video === undefined) {
       return null;
     }
-    // debugger
     const editBtn = ((this.props.currentUser) && (this.props.currentUser.id === video.userId)) ? (
       <button className="show-video-edit" onClick={this.videoEdit}>Edit Video</button>
     ) : (

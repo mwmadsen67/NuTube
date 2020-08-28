@@ -77,7 +77,6 @@ class VideoEdit extends React.Component {
   }
 
   // componentDidMount(){
-  //   debugger
   //   this.setState({
   //     title: this.props.video.title,
   //     description: this.props.video.description,
