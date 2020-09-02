@@ -23,7 +23,11 @@
     "redux-thunk": "^2.3.0",
     "typeface-roboto": "0.0.54",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "minimist": ">=1.2.3",
+    "kind-of": ">=6.0.3",
+    "serialize-javascript": ">=3.1.0",
+    "set-value": ">=2.0.1"
   },
   "description": "NuTube is a YouTube clone. This is a 10 day full stack project through App Academy.",
   "version": "1.0.0",
