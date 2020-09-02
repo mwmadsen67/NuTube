@@ -7,14 +7,14 @@ class VideoEdit extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      title: this.props.video.title,
-      description: this.props.video.description,
-      length: this.props.video.length,
-      videoUrl: this.props.video.videoUrl,
-      imageFile: null,
-      imageUrl: this.props.video.imageUrl,
-      userId: this.props.video.userId,
-      username: this.props.video.username,
+      title: '',
+      description: '',
+      length: '',
+      // videoUrl: this.props.video.videoUrl,
+      // imageFile: null,
+      // imageUrl: this.props.video.imageUrl,
+      // userId: this.props.video.userId,
+      // username: this.props.video.username,
       loading: false
     };
 
@@ -40,6 +40,7 @@ class VideoEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearErrors();
 
     this.setState({
       loading: true
@@ -52,22 +53,23 @@ class VideoEdit extends React.Component {
       length: this.state.length
     };
 
-    this.props.updateVideo(video).then(res => this.goHome());
+    this.props.updateVideo(video).then(res => this.goHome(), err => this.setState({ loading: false }));
   }
 
   handleDelete(e) {
     e.preventDefault();
+    this.props.clearErrors();
 
-    this.props.deleteVideo(this.props.videoId).then(res => this.goHome());
+    this.props.deleteVideo(this.props.videoId).then(res => this.goHome(), err => this.setState({loading: false}));
   }
 
   renderErrors() {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <div>
+          <div key={`error-${i}`}>
             <br/>
-            <li className="new-video-error" key={`error-${i}`}>
+            <li className="new-video-error">
               {error}
             </li>
           </div>
@@ -76,19 +78,15 @@ class VideoEdit extends React.Component {
     );
   }
 
-  // componentDidMount(){
-  //   this.setState({
-  //     title: this.props.video.title,
-  //     description: this.props.video.description,
-  //     length: this.props.video.length,
-  //     videoUrl: this.props.video.videoUrl,
-  //     imageUrl: this.props.video.imageUrl,
-  //   })
-  // }
+  componentDidMount(){
+    this.props.requestVideo(this.props.match.params.videoId)
+  }
 
   render(){
+    const video = this.props.video;
+    if (!video) return null;
     
-    const preview = (this.state.imageUrl) ? <img width="200px" height="120px" src={this.state.imageUrl} /> : <div></div>;
+    const preview = (video.imageUrl) ? <img width="200px" height="120px" src={video.imageUrl} /> : <div></div>;
 
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
@@ -109,7 +107,7 @@ class VideoEdit extends React.Component {
       </div>
     );
 
-    const desc = (this.state.description || '');
+    // const desc = (video.description || '');
 
     return(
       <div className="new-video-container">
@@ -144,7 +142,7 @@ class VideoEdit extends React.Component {
                       <textarea className="new-video-description" 
                         type="text" 
                         placeholder="Description" 
-                        value={desc}  
+                        value={this.state.description}  
                         onChange={this.update('description')}>
                       </textarea>
                     </label>

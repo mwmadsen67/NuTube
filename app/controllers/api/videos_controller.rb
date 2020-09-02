@@ -5,7 +5,7 @@ class Api::VideosController < ApplicationController
     @video = Video.new(video_params)
     @video.video_attach.attach(params[:video][:video_attach])
     @video.image.attach(params[:video][:image])
-    if @video.save!
+    if @video.save
       render :show
     else
       render json: @video.errors.full_messages, status: 422

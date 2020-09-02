@@ -48,6 +48,7 @@ class VideoNew extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearErrors();
     const formData = new FormData();
     formData.append('video[title]', this.state.title);
     formData.append('video[description]', this.state.description);
@@ -60,16 +61,16 @@ class VideoNew extends React.Component {
       loading: true
     });
 
-    this.props.createVideo(formData).then(res => this.goHome());
+    this.props.createVideo(formData).then(res => this.goHome(), err => this.setState({loading: false}));
   }
 
   renderErrors() {
     return(
       <ul>
         {this.props.errors.map((error, i) => (
-          <div>
+          <div key={`error-${i}`}>
             <br/>
-            <li className="new-video-error" key={`error-${i}`}>
+            <li className="new-video-error">
               {error}
             </li>
           </div>

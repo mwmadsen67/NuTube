@@ -296,6 +296,10 @@ span {
   }
 }
 
+.new-video-error {
+  color: red;
+}
+
 .new-video-upload-btn-container {
   display: flex;
   flex-direction: column;
@@ -425,6 +429,7 @@ span {
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: #c01111;
   padding: 0 10px;
   border-radius: 2px;

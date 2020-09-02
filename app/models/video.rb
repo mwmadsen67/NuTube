@@ -2,7 +2,7 @@ class Video < ApplicationRecord
   validates :title, :length, presence: true
   validates :title, length: { maximum: 100 }
   validates :description, length: { maximum: 5000, allow_nil: true }
-  validates :length, length: { maximum: 500 }
+  validates :length, length: { maximum: 500 }, numericality: {only_integer: true}
 
   belongs_to :user
 
