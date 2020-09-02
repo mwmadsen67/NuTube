@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faVideo, faBars, faSpinner, faSearch, faThumbsUp, faThumbsDown, faArrowAltCircleUp as fasArrowAltCircleUp} from '@fortawesome/free-solid-svg-icons';
-import { faArrowAltCircleUp as farArrowAltCircleUp} from '@fortawesome/free-regular-svg-icons';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faVideo, faBars, faSpinner, faSearch, faThumbsUp, faThumbsDown, faArrowAltCircleUp as fasArrowAltCircleUp} from '@fortawesome/free-solid-svg-icons';
+// import { faArrowAltCircleUp as farArrowAltCircleUp} from '@fortawesome/free-regular-svg-icons';
 
-library.add(faVideo, faBars, faSpinner, faSearch, faThumbsUp, faThumbsDown, fasArrowAltCircleUp, farArrowAltCircleUp);
+// library.add(faVideo, faBars, faSpinner, faSearch, faThumbsUp, faThumbsDown, fasArrowAltCircleUp, farArrowAltCircleUp);
 
 import SigninFormContainer from './signin/signin_form_container';
 import SignupFormContainer from './signin/signup_form_container';
