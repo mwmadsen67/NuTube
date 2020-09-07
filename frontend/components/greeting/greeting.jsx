@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaAddressCard, FaUsers, FaSignOutAlt, FaSign } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FaAddressCard, FaUsers, FaSignOutAlt, FaSign } from 'react-icons/fa'
 
 
 const Greeting = ({ currentUser, signout }) => {
@@ -29,16 +29,22 @@ const Greeting = ({ currentUser, signout }) => {
         </div>
         <div className="dropdown-bottom">
           <div className="dropdown-item">
-            <FaAddressCard />
+            <div>
+              <FontAwesomeIcon icon="address-card" size="lg" color="white" />
+            </div>
             Your channel
             </div>
           <div className="dropdown-item">
-            <FaUsers />
-              Switch accounts
+            <div>
+              <FontAwesomeIcon icon="users" size="lg" color="white" />
+            </div>
+            Switch accounts
             </div>
           <div className="dropdown-item">
-            <FaSignOutAlt />
-              Sign out
+            <div>
+              <FontAwesomeIcon icon="sign-out-alt" size="lg" color="white" />
+            </div>
+            Sign out
             </div>
         </div>
       </div>
