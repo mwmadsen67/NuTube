@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from '../header';
 import { withRouter } from 'react-router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CommentsContainer from '../comments/comments_container';
 import VideoIndexContainer from '../videos/video_index_container';
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 
 class VideoShow extends React.Component {
   constructor(props){
@@ -131,12 +131,12 @@ class VideoShow extends React.Component {
                 <div className="likes">
                   <div className="temp-plays"></div>
                   <button className="like-btn" onClick={this.handleLike}>
-                    <FontAwesomeIcon className="thumb" icon="thumbs-up" size="lg" color="rgb(150, 150, 150)" />
+                    <FaThumbsUp className="thumb" color="rgb(150, 150, 150)" />
                     <h3>{this.state.numLikes}</h3>
                   </button>
                   &nbsp;
                   <button className="like-btn" onClick={this.handleDislike}>
-                    <FontAwesomeIcon className="thumb" icon="thumbs-down" size="lg" color="rgb(150, 150, 150)" />
+                    <FaThumbsDown className="thumb" color="rgb(150, 150, 150)" />
                     <h3>{this.state.numDislikes}</h3>
                   </button>
                 </div>

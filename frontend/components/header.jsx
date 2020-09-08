@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaBars, FaSearch, FaVideo } from 'react-icons/fa';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class NavBar extends React.Component {
       <div className="header">
         <div className="header-container">
           <div className="left-header-container">
-            <FontAwesomeIcon icon="bars" size="lg" color="white" />
+            <FaBars size="lg" color="white"/>
             <div className="header-left-space"></div>
             <div className="left-header-button" onClick={this.handleClick}>
               <img id='logo' src={window.images.logo} width="30" height="21"/>
@@ -47,12 +48,12 @@ class NavBar extends React.Component {
           <form className="search-container" onSubmit={this.handleSearch} >
             <input className="search-bar" type="text" placeholder="Search" value={this.state.query} onChange={this.update} />
             <button className="search-button" type="submit">
-              <FontAwesomeIcon className="search-icon" icon="search" color="rgb(100, 100, 100)" />
+              <FaSearch size="lg" color="rgb(100, 100, 100)" />
             </button>
           </form>
           <div className="right-header-container">
             <div className="header-upload" onClick={this.videoClick}>
-              <FontAwesomeIcon icon="video" size="lg" color="white" />
+              <FaVideo size="lg" color="white" />
             </div>
             <div className="header-right-vid-spacer"></div>
             <GreetingContainer /> 

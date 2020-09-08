@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  
+
   window.store = store
   // logout dropdown
   window.onclick = function(event) {
