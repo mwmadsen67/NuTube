@@ -19,11 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  ///////// testing only! //////////
-  window.createVideo = Action.createVideo;
-  window.requestVideos = Action.requestVideos;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  ///////// testing only! //////////
+  
+  window.store = store
+  // logout dropdown
+  window.onclick = function(event) {
+    let ele = document.getElementById('dropdown');
+    if (ele.classList.contains('open')) {
+      console.dir(event.target);
+      if (!event.target.matches('.greeting-user-btn') && !event.target.matches('.ddmenu')) {
+        ele.classList.remove('open');
+      }
+    }
+  }
   ReactDOM.render(<Root store={ store } />, root);
 });
