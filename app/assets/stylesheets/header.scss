@@ -182,7 +182,7 @@
   min-width: 200px;
 }
 
-.greeting-user:hover .greeting-dropdown {
+.open {
   display: block;
 }
 
@@ -261,4 +261,9 @@
   background-color: #383838;
   border-color: #383838;
   cursor: pointer;
+}
+
+.dropdown-item > div {
+  display: inline-block;
+  width: 33px;
 }
