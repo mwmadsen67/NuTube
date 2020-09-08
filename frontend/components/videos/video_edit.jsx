@@ -1,8 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import Header from '../header';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaSpinner } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class VideoEdit extends React.Component {
   constructor(props){
@@ -91,7 +90,7 @@ class VideoEdit extends React.Component {
 
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
-        <FaSpinner className="new-video-spinner" size="2x" color="white" pulse />
+        <FontAwesomeIcon icon="spinner" className="new-video-spinner" size="2x" color="white" pulse />
         &nbsp;
         <h3>Upload status: Processing your changes...</h3>
       </div>

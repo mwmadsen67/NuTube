@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import Header from '../header';
-import { FaSpinner, FaArrowAltCircleUp, FaRegArrowAltCircleUp } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class VideoNew extends React.Component {
   constructor(props) {
@@ -85,7 +85,7 @@ class VideoNew extends React.Component {
     const videoFields = (this.state.videoUrl !== null && this.state.imageUrl !== null) ? "new-video-fields" : "hidden-fields";
     const loading = (this.state.loading) ? (
       <div className="new-video-loading">
-        <FaSpinner className="new-video-spinner"size="2x" color="white" pulse />
+        <FontAwesomeIcon icon="spinner" className="new-video-spinner" size="2x" color="white" pulse />
         &nbsp;
         <h3>Upload status: Processing your video...</h3>
       </div>
@@ -107,7 +107,7 @@ class VideoNew extends React.Component {
                 {/* <div className="hidden-btn" > */}
                 {/* TEMPORARY TESTING */}
                   <label htmlFor="new-video-upload-input">
-                    <FaArrowAltCircleUp className="new-video-upload-btn" size="2x" color="white" />
+                    <FontAwesomeIcon icon="arrow-alt-circle-up" className="new-video-upload-btn" size="4x" color="white" />
                     <input id="new-video-upload-input" onChange={this.handleVideo} type="file" accept="video/*" />
                   </label>
                   &nbsp;
@@ -117,7 +117,7 @@ class VideoNew extends React.Component {
                 {/* <div className="hidden-btn" > */}
                 {/* TEMPORARY TESTING */}
                   <label htmlFor="new-img-upload-input">
-                    <FaRegArrowAltCircleUp className="new-video-upload-btn" size="2x" color="white" />
+                    <FontAwesomeIcon icon={['far', 'arrow-alt-circle-up']} className="new-video-upload-btn" size="4x" color="white" />
                     <input id="new-img-upload-input" onChange={this.handlePreview} type="file" accept="image/*" />
                   </label>
                   &nbsp;

@@ -3,7 +3,7 @@ import Header from '../header';
 import { withRouter } from 'react-router';
 import CommentsContainer from '../comments/comments_container';
 import VideoIndexContainer from '../videos/video_index_container';
-import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class VideoShow extends React.Component {
   constructor(props){
@@ -131,12 +131,12 @@ class VideoShow extends React.Component {
                 <div className="likes">
                   <div className="temp-plays"></div>
                   <button className="like-btn" onClick={this.handleLike}>
-                    <FaThumbsUp className="thumb" color="rgb(150, 150, 150)" />
+                    <FontAwesomeIcon icon="thumbs-up" size="lg" className="thumb" color="rgb(150, 150, 150)" />
                     <h3>{this.state.numLikes}</h3>
                   </button>
                   &nbsp;
                   <button className="like-btn" onClick={this.handleDislike}>
-                    <FaThumbsDown className="thumb" color="rgb(150, 150, 150)" />
+                  <FontAwesomeIcon icon="thumbs-down" size="lg" className="thumb" color="rgb(150, 150, 150)" />
                     <h3>{this.state.numDislikes}</h3>
                   </button>
                 </div>
