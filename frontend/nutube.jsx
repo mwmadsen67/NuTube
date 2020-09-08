@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.onclick = function(event) {
     let ele = document.getElementById('dropdown');
     if (ele.classList.contains('open')) {
-      console.dir(event.target);
       if (!event.target.matches('.greeting-user-btn') && !event.target.matches('.ddmenu')) {
         ele.classList.remove('open');
       }

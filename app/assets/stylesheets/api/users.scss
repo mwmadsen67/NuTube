@@ -1,3 +1,75 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.prof-top-spacer {
+  width: 10px;
+  height:55px;
+}
+
+.prof-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prof-banner {
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+}
+
+.prof-banner > img {
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+
+.prof-info {
+  width: 100%;
+  height: 11vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #191919;
+}
+
+.prof-pic {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.prof-pic > img {
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.prof-info2 {
+  display: flex;
+  align-items: center;
+}
+
+.prof-info2 > h2 {
+  color: white;
+  margin-left: 14px;
+}
+
+.prof-btn {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a73e8;
+  padding: 6px 10px;
+  border-radius: 2px;
+  height: 28px;
+  width: 135px;
+  font-size: 8pt;
+  border: 0px solid;
+  cursor: pointer;
+}

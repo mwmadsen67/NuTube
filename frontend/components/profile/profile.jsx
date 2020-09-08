@@ -14,20 +14,33 @@ class Profile extends React.Component {
   render() {
     let user = this.props.user;
     if(!user) return null;
-    console.dir(user)
+
+    const customizeBtn = (this.props.currentUser && (this.props.currentUser.id === user.id)) ? (
+      <button className="prof-btn">CUSTOMIZE PROFILE</button>
+    ) : (<div></div>);
 
     return(
-      <div>
+      <div className="prof">
         <Header/>
-        <div>
-          <img src={user.banner} />
-        </div>
-        <div>
-          <img src={user.image} />
-
-        </div>
-        <div>
-          {user.username}
+        <div className="prof-top-spacer"></div>
+        <div className="prof-container">
+          <div className="prof-banner">
+            <img src={user.banner} />
+          </div>
+          <div className="prof-info">
+            <div className="prof-info2">
+              <div className="prof-pic">
+                <img src={user.image} />
+              </div>
+              <h2>{user.username}</h2>
+            </div>
+            <div className="prof-btn-container">
+              {customizeBtn}
+            </div>
+          </div>
+          <div className="prof-video-index">
+            <h3 style={{color: "white"}}>Profile Video Index Goes Here</h3>
+          </div>
         </div>
       </div>
     )
