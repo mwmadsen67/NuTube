@@ -1,16 +1,25 @@
 import React from 'react';
 import Header from '../header';
 import VideoIndexItem from './video_index_item';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class VideoIndex extends React.Component {
   constructor(props){
     super(props);
-
+    this.state = {
+      loading: true
+    }
     this.renderMoreVideos = this.renderMoreVideos.bind(this);
   }
 
   componentDidMount() {
-    this.props.requestVideos();
+    if (this.props.indexType === "profile") {
+      this.props.fetchVideos(this.props.userId)
+        .then(this.setState({ loading: false }));
+    } else {
+      this.props.requestVideos()
+        .then(this.setState({ loading: false }));
+    }
   }
 
   renderMoreVideos(n) {
@@ -22,7 +31,7 @@ class VideoIndex extends React.Component {
             <VideoIndexItem
               video={video}
               key={video.id}
-              vidType="main"
+              vidType={this.props.indexType}
             />
           ))}
           </div>
@@ -39,14 +48,15 @@ class VideoIndex extends React.Component {
   }
 
   render() {
-    if (this.props.indexType === "side") {
+
+    if (this.props.indexType !== "main") {
       return (
         <div className="index-side">
           {this.props.videos.reverse().slice(0,10).map(video => (
             <VideoIndexItem
               video={video}
               key={video.id}
-              vidType="side"
+              vidType={this.props.indexType}
             />
           ))}
         </div>
@@ -65,7 +75,7 @@ class VideoIndex extends React.Component {
               <VideoIndexItem
                 video={video}
                 key={video.id}
-                vidType="main"
+                vidType={this.props.indexType}
               />
             ))}
           </div>

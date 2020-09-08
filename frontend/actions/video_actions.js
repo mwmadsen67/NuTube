@@ -48,6 +48,11 @@ export const searchVideos = (query) => dispatch => (
   err => dispatch(receiveVideoErrors(err.responseJSON)))
 );
 
+export const requestUserVideos = (id) => dispatch => (
+  VideoApiUtil.fetchUserVideos(id).then(videos => dispatch(receiveVideos(videos)),
+    err => dispatch(receiveVideoErrors(err.responseJSON)))
+);
+
 export const requestVideo = (id) => dispatch => (
   VideoApiUtil.fetchVideo(id).then( video => dispatch(receiveVideo(video)),
   err => dispatch(receiveVideoErrors(err.responseJSON)))

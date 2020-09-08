@@ -1,6 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import Header from '../header';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import VideoIndexContainer from '../videos/video_index_container';
+
 
 class Profile extends React.Component {
   constructor(props) {
@@ -8,7 +10,13 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.userId)
+    this.props.fetchUser(this.props.userId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.userId !== this.props.userId) {
+      this.props.fetchUser(this.props.userId);
+    }
   }
 
   render() {
@@ -17,7 +25,9 @@ class Profile extends React.Component {
 
     const customizeBtn = (this.props.currentUser && (this.props.currentUser.id === user.id)) ? (
       <button className="prof-btn">CUSTOMIZE PROFILE</button>
-    ) : (<div></div>);
+    ) : (<div style={{width: "125px"}}></div>);
+
+    const videos =  <VideoIndexContainer indexType="profile" userId={this.props.userId} />
 
     return(
       <div className="prof">
@@ -39,7 +49,8 @@ class Profile extends React.Component {
             </div>
           </div>
           <div className="prof-video-index">
-            <h3 style={{color: "white"}}>Profile Video Index Goes Here</h3>
+            <h3>Uploads</h3>
+            {videos}
           </div>
         </div>
       </div>

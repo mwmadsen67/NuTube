@@ -73,3 +73,15 @@
   border: 0px solid;
   cursor: pointer;
 }
+
+.prof-video-index {
+  display: flex;
+  flex-direction: column;
+  width: 61vw;
+  margin-top: 15px;
+}
+
+.prof-video-index > h3 {
+  color: white;
+  margin-bottom: 15px;
+}

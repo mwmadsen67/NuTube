@@ -13,7 +13,11 @@ class Api::VideosController < ApplicationController
   end
 
   def index
-    @videos = Video.all
+    if params[:user_id]
+      @videos = Video.where(user_id: params[:user_id])
+    else
+      @videos = Video.all
+    end
   end
 
   def search
