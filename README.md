@@ -4,8 +4,6 @@
 
 ## Introduction
 
-I'm on a new branch
-
 NuTube is a new and improved version of YouTube in which users can watch and upload videos.
 
 [NuTube live site](https://nutube.herokuapp.com/#/)
