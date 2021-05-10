@@ -1,12 +1,13 @@
+require 'open-uri'
 class User < ApplicationRecord
-  require 'open-uri'
 
   validates :email, presence: true, uniqueness: true
   validates :session_token, :username, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validate :ensure_image, :ensure_banner
+  # validate :ensure_image, :ensure_banner
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_image, :ensure_banner
+  # after_initialize :ensure_session_token
   attr_reader :password
 
   has_many :videos
@@ -25,6 +26,7 @@ class User < ApplicationRecord
 
   def ensure_banner
     if !self.banner.attached?
+      # require 'open-uri'
       self.banner.attach(io: open("https://s3-us-west-1.amazonaws.com/nutube-dev/matrix-code.jpg"), filename: 'default_banner')
     end
   end

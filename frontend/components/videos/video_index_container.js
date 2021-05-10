@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { requestVideos, searchVideos, requestUserVideos } from '../../actions/video_actions';
 import { videoArray } from '../../reducers/selectors';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return{
-    videos: videoArray(state.entities),
-    indexType: ownProps.indexType
+    videos: videoArray(state.entities)
   };
 };
 

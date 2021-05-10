@@ -22,6 +22,12 @@ class VideoIndex extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.userId !== this.props.userId) {
+      this.props.fetchVideos(this.props.userId)
+    }
+  }
+
   renderMoreVideos(n) {
     if (this.props.videos.reverse()[n]) {
       return(

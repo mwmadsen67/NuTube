@@ -122,7 +122,7 @@ class VideoShow extends React.Component {
           <div className='show-video'>
             <div className="show-left-spacer"></div>
               <div className="show-video-area">
-                <video key={video.videoUrl} width="100%" height="auto" controls>
+                <video key={video.videoUrl} width="100%" height="auto" autoplay controls>
                   <source src={video.videoUrl} type="video/mp4"></source>
                 </video>
                 &nbsp;

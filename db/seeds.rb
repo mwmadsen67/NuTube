@@ -12,6 +12,8 @@ Like.destroy_all
 Video.destroy_all
 User.destroy_all
 
+puts "creating users..."
+
 demo = User.create!({username: "Demo User", email: "demo_user@nutube.com", password: "youtubesucks"})
 mike = User.create!({username: "Mike Madsen", email: "mike@nutube.com", password: "mikemike"})
 aram = User.create!({username: "Aram", email: "aram@nutube.com", password: "123456"})
@@ -29,6 +31,8 @@ jre = User.create!({username: "JRE Clips", email: "jre@nutube.com", password: "1
 keypeele = User.create!({username: "Comedy Central", email: "comedycentral@nutube.com", password: "123456"})
 eddie = User.create!({username: "Eddie Vedder", email: "pearljam@nutube.com", password: "654321"})
 bubbles = User.create!({username: "Trailer Park Boys", email: "bubbles@nutube.com", password: "999999"})
+
+puts "creating videos..."
 
 vid1 = Video.create!({title: "4K Icicles", description: "This is a test video showing icicles dripping some water", length: 16, user_id: mike.id})
 video1 = open("https://s3-us-west-1.amazonaws.com/nutube-dev/Pexels+Videos+1899099.mp4")
@@ -95,6 +99,8 @@ vidtpb = open("https://nutube-dev.s3-us-west-1.amazonaws.com/Greatest+Trailer+Pa
 tpb.video_attach.attach(io: vidtpb, filename: "rushtpb")
 imgtpb = open("https://nutube-dev.s3-us-west-1.amazonaws.com/IMGtpbRush.png")
 tpb.image.attach(io: imgtpb, filename: "bubbles")
+
+puts "creating likes and dislikes..."
 
 like1 = Like.create!({user_id: mike.id, video_id: vidkeypeele.id})
 like2 = Like.create!({user_id: demo.id, video_id: vidkeypeele.id})
