@@ -116,13 +116,13 @@ class VideoShow extends React.Component {
 
     return(
       <div className='show-video-page'>
-        <Header />
+        <Header search={this.props.searchVideos} />
         <div className='show-left-video'>
           <div className="show-top-spacer"></div>
           <div className='show-video'>
             <div className="show-left-spacer"></div>
               <div className="show-video-area">
-                <video key={video.videoUrl} width="100%" height="auto" autoplay controls>
+                <video key={video.videoUrl} width="100%" height="auto" autoPlay controls>
                   <source src={video.videoUrl} type="video/mp4"></source>
                 </video>
                 &nbsp;

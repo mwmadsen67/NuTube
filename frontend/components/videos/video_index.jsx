@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../header';
+import { Link } from 'react-router-dom';
 import VideoIndexItem from './video_index_item';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -13,10 +14,11 @@ class VideoIndex extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     if (this.props.indexType === "profile") {
       this.props.fetchVideos(this.props.userId)
         .then(this.setState({ loading: false }));
-    } else {
+    } else if (this.props.indexType !== "side" && this.props.history.action !== "PUSH") {
       this.props.requestVideos()
         .then(this.setState({ loading: false }));
     }

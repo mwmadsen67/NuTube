@@ -22,11 +22,12 @@ class NavBar extends React.Component {
   }
 
   update(e) {
-    this.setState({query: e.currentTarget.value})
+    this.setState({query: e.currentTarget.value});
   }
 
   handleSearch(e) {
-    e.preventDefault()
+    e.preventDefault();
+    this.props.history.push('/');
     this.props.search(this.state.query)
   }
 
