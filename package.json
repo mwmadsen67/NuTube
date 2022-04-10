@@ -23,7 +23,7 @@
     "typeface-roboto": "0.0.54",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "minimist": ">=1.2.3",
+    "minimist": ">=1.2.6",
     "kind-of": ">=6.0.3",
     "serialize-javascript": ">=3.1.0",
     "set-value": ">=2.0.1"
